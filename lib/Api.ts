@@ -1,4 +1,4 @@
-export async function getServerSideProps() {
+export async function getData() {
     //principal
     const resServicios = await fetch('https://673e55760118dbfe860b0087.mockapi.io/api/v1/servicios');
     //habitaciones
