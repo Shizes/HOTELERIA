@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.eventos {
+  width: 282px;
+  height: 1102px;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.eventos-card {
+  width: 281px;
+  height: 259px;
+  flex-shrink: 0;
+  border: 1px solid #ddd; /* Borde de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+  text-align: center; /* Centra el contenido */
+  margin: 16px auto; /* Centra horizontalmente */
+  background-color: #fff; /* Fondo blanco */
+}
+
+.eventos-card img {
+  width: 100%; /* La imagen ocupa todo el ancho */
+  height: auto; /* Mantiene la proporción */
+  object-fit: cover; /* Ajusta la imagen para que encaje */
+}
+
+.eventos-card h3 {
+  background-color: #a0007e; /* Color de fondo del título */
+  color: #fff; /* Color del texto */
+  font-size: 18px; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  padding: 12px;
+}
