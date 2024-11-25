@@ -1,6 +1,6 @@
 
 import Footer from "@/Components/ui/Footer";
-import Image from "next/image";
+// import Image from "next/image"; // DEBEMOS USARLO Y TAMBIEN LA CARPETA PRINCIPAL DEBE SER ESTA
 import Navbar from "@/Components/ui/Navbar";
 
 export default function Home() {

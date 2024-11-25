@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css"; // Asegúrate de tener este archivo en la misma carpeta
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -9,9 +10,11 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Hotel Calacoto</h3>
           <p>Mapa</p>
-          <img
-            src="/icons/mapa.svg" // Cambia esta ruta a tu imagen del mapa
+          <Image
+            src="/icons/mapa.svg"
             alt="Mapa de Hotel Calacoto"
+            width={300} // Ajusta según lo necesites
+            height={200} // Ajusta según lo necesites
             className="footer-map"
           />
           <p>Calacoto Calle 13 esquina Sanchez Bustamante 8009</p>
@@ -48,9 +51,27 @@ const Footer = () => {
           <p>reservas@hotelcalacoto.com</p>
           <p>+591 69412010</p>
           <div className="footer-icons">
-          <img src="/icons/Whatsapp.svg" alt="WhatsApp" className="footer-icon" />
-            <img src="/icons/Twitter.svg" alt="Twitter" className="footer-icon" />
-            <img src="/icons/Facebookfooter.svg" alt="Facebook" className="footer-icon" />
+            <Image
+              src="/icons/Whatsapp.svg"
+              alt="WhatsApp"
+              width={30} // Ajusta según lo necesites
+              height={30} // Ajusta según lo necesites
+              className="footer-icon"
+            />
+            <Image
+              src="/icons/Twitter.svg"
+              alt="Twitter"
+              width={30} // Ajusta según lo necesites
+              height={30} // Ajusta según lo necesites
+              className="footer-icon"
+            />
+            <Image
+              src="/icons/Facebookfooter.svg"
+              alt="Facebook"
+              width={30} // Ajusta según lo necesites
+              height={30} // Ajusta según lo necesites
+              className="footer-icon"
+            />
           </div>
         </div>
       </div>
@@ -58,7 +79,13 @@ const Footer = () => {
       {/* Pie de página */}
       <div className="footer-bottom">
         <p>Hotel Calacoto desde 1993</p>
-        <img src="/icons/world.svg" alt="Espanol" className="footer-world" />
+        <Image
+          src="/icons/world.svg"
+          alt="Español"
+          width={20} // Ajusta según lo necesites
+          height={20} // Ajusta según lo necesites
+          className="footer-world"
+        />
         <p>Español</p>
       </div>
     </footer>
