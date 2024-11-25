@@ -1,8 +1,15 @@
 import React from 'react'
 import Navbar from '@/Components/ui/Navbar'
 import { getApis } from '@/lib/getApis'
+import { GetServerSideProps } from 'next'
+interface salones{
+  id: String,
+  name: String,
+  //description: String,
+  image: String,
+}
 
-const armados = () => {
+const armados = ({salones}) => {
   return (
     <div>
       <Navbar/>
@@ -10,6 +17,7 @@ const armados = () => {
       </div>
   )
 }
+
 
 export async function getServerSideProps(){
   try {
@@ -20,8 +28,9 @@ export async function getServerSideProps(){
     }
   };
   }catch(error){
+    console.error(error);
     return{
-      props: { articles: [] },
+      salones: [], 
     };
   }
 }

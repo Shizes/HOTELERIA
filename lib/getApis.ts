@@ -1,7 +1,7 @@
 export async function getApis() {
     try {
-        const resSalones = await fetch('https://api.hotel.com/api/v1/hotel/services/salones'); // Cambia la URL según sea necesario
-        const resEventos = await fetch('https://api.hotel.com/api/v1/hotel/services/eventos'); // Cambia la URL según sea necesario
+        const resSalones = await fetch('https://673e808e0118dbfe860b76dd.mockapi.io/armados');
+        const resEventos = await fetch('https://673e808e0118dbfe860b76dd.mockapi.io/eventos');
 
         // Verifica si alguna de las respuestas no es correcta
         if (!resSalones.ok) {
