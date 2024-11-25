@@ -1,15 +1,11 @@
 import React from 'react';
-import { getData } from '@/lib/Api';
-import CardEvent from '@/components/CardEvent';
+import CardEvento from './CardEvento';
 
-export default async function EventosPage() {
-  // Obtiene los datos usando getData
-  const { eventos } = await getData();
 
+const Eventos = () => {
   return (
-    <div>
-      <h1>Eventos del Hotel</h1>
-      <CardEvent eventos={eventos} />
-    </div>
-  );
+    <div>Eventos</div>
+  )
 }
+
+export default Eventos
