@@ -1,0 +1,15 @@
+.room-section {
+    margin: 32px 0;
+  }
+  
+  .room-section-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .room-section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  
