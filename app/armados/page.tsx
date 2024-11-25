@@ -2,37 +2,26 @@ import React from 'react'
 import Navbar from '@/Components/ui/Navbar'
 import { getApis } from '@/lib/getApis'
 import { GetServerSideProps } from 'next'
-interface salones{
-  id: String,
-  name: String,
-  //description: String,
-  image: String,
-}
 
-const armados = ({salones}) => {
+
+const armados = ({articles}) => {
   return (
     <div>
-      <Navbar/>
-      armados
+      <Navbar/> 
+      <img src={articles.image} alt={articles.title}/>
       </div>
   )
 }
 
 
-export async function getServerSideProps(){
-  try {
-    const salones = await getApis()
-    return{
-      props:{
-        salones
-    }
-  };
-  }catch(error){
-    console.error(error);
-    return{
-      salones: [], 
+export async function getServerSideProps() {
+    const res = await fetch('https://673e808e0118dbfe860b76dd.mockapi.io/eventos'); 
+    const articles = await res.json();
+
+    return {
+      props: { articles } 
     };
-  }
-}
+  } 
+
 
 export default armados
