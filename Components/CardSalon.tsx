@@ -1,16 +1,15 @@
-import salones from '@/app/salones/page';
 import React from 'react'
+import "./CardSalon.css"
 
 interface SalonProps {
-  Salon: {
+  salon: {
     id: string;
     name: string;
-    description: string;
     image: string;
   };
 }
 
-const CardSalon = () => {
+const CardSalon = ({ salon }: SalonProps) => {
   return (
     <section>
       <div className='mosaico'>

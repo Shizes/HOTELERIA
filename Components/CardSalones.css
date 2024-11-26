@@ -1,0 +1,14 @@
+.card {
+    border: 1px solid #ddd; /* Borde de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    background-color: #fff; /* Fondo blanco */
+    display: flex;
+    width: 100px;
+    height: 170px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
