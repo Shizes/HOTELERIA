@@ -1,5 +1,5 @@
 import React from 'react';
-import './RoomCard.css'; // Asegúrate de tener este archivo de estilos
+import './RoomCard.css';
 
 interface RoomCardProps {
   image: string;

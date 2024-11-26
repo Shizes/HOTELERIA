@@ -1,15 +1,40 @@
 .room-section {
-    margin: 32px 0;
-  }
-  
-  .room-section-title {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-  
-  .room-section-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-  }
-  
+  margin: 32px 0;
+  padding: 0 16px;
+}
+
+.room-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.room-section-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.room-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}

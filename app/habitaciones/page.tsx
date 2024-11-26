@@ -3,11 +3,10 @@ import Navbar from '@/Components/ui/Navbar';
 import Footer from '@/Components/ui/Footer';
 import RoomSection from '@/Components/RoomSection';
 
-export async function getStaticProps() {
-  // Simulación de datos
+const habitaciones = () => {
   const recommendedRooms = [
     { image: '/img/habitacion_simple.jpg', name: 'Habitación Simple', price: '$80' },
-    { image: '/img/suite_ejecutiva.jpg', name: 'Suite Ejecutiva', price: '$125' },
+    { image: '/img/habitacion_doble.jpg', name: 'Habitación Doble/Matrimonial', price: '$120' },
   ];
 
   const allRooms = [
@@ -19,20 +18,6 @@ export async function getStaticProps() {
     { image: '/img/departamento_doble.jpg', name: 'Departamento Doble', price: '$120' },
   ];
 
-  return {
-    props: {
-      recommendedRooms,
-      allRooms,
-    },
-  };
-}
-
-interface HabitacionesProps {
-  recommendedRooms: { image: string; name: string; price: string }[];
-  allRooms: { image: string; name: string; price: string }[];
-}
-
-const habitaciones: React.FC<HabitacionesProps> = ({ recommendedRooms, allRooms }) => {
   return (
     <div>
       <Navbar />
