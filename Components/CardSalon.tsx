@@ -1,5 +1,5 @@
+import './CardSalones.css';
 import React from 'react';
-import "./CardSalon.css";
 
 interface SalonProps {
   salon: {
