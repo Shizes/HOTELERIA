@@ -43,13 +43,11 @@ body {
   font-size: 18px; /* Tamaño del texto */
   font-weight: bold; /* Texto en negrita */
   padding: 12px;
+  width: 100%;
 }
 
 .title {
-  width: 100%;
   background-color: #b8136f;
   background: #b8136f;
 }
-.text {
-  width: 100%;
-}
+
