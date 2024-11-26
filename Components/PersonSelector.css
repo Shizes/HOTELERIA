@@ -18,6 +18,27 @@
     text-align: center;
     width: 300px;
   }
+  .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+  }
+  
+  .counter button {
+    padding: 5px 10px;
+    background-color: #c022a3;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .counter button:hover {
+    background-color: #a50082;
+  }
   
   .person-controls {
     display: flex;

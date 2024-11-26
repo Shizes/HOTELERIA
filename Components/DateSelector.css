@@ -10,6 +10,20 @@
     align-items: center;
     z-index: 1000;
   }
+  .confirm-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #c022a3;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirm-button:hover {
+    background-color: #a50082;
+  }
   
   .modal-content {
     background: white;

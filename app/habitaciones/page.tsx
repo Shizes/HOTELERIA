@@ -6,6 +6,7 @@ import Footer from "@/Components/ui/Footer";
 import RoomSection from "@/Components/RoomSection";
 import PersonSelector from "@/Components/PersonSelector";
 import DateSelector from "@/Components/DateSelector";
+import "./page.css";
 
 const habitaciones = () => {
   const [isPersonSelectorOpen, setIsPersonSelectorOpen] = useState(false);
@@ -28,7 +29,9 @@ const habitaciones = () => {
           <div className="control" onClick={openDateSelector}>
             <span>Fechas: </span>09 oct 2024 - 13 oct 2024
           </div>
-          <button>Reservas</button>
+          <button>
+
+          </button>
         </div>
 
         <RoomSection title="Recomendados" rooms={[]} />
