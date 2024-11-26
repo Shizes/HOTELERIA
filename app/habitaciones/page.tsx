@@ -5,8 +5,11 @@ import RoomSection from '@/Components/RoomSection';
 
 const habitaciones = () => {
   const recommendedRooms = [
-    { image: '/img/habitacion_simple.jpg', name: 'Habitación Simple', price: '$80' },
+    { image: '/img/habitacion_simple.jpg', name: 'Departamento Simple', price: '$80' },
     { image: '/img/habitacion_doble.jpg', name: 'Habitación Doble/Matrimonial', price: '$120' },
+    { image: '/img/habitacion_triple.jpg', name: 'Habitación Triple', price: '$110' },
+    { image: '/img/departamento_familiar.jpg', name: 'Departamento Familiar', price: '$125' },
+    { image: '/img/departamento_doble.jpg', name: 'Departamento Doble', price: '$120' },
   ];
 
   const allRooms = [

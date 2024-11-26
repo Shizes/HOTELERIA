@@ -7,12 +7,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
 }
 
 .room-section-title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 16px;
   color: #333;
 }
 
@@ -37,4 +37,26 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
+}
+
+/* Aplicar estilos de scroll solo para "Recomendados" */
+.room-section-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 16px;
+}
+
+.room-section-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.room-section-scroll::-webkit-scrollbar-thumb {
+  background-color: #a50082;
+  border-radius: 8px;
+}
+
+.room-section-scroll::-webkit-scrollbar-track {
+  background: #f0f0f0;
 }
