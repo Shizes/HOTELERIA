@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import Navbar from "@/Components/ui/Navbar";
 import Footer from "@/Components/ui/Footer";
 import RoomSection from "@/Components/RoomSection";
@@ -29,9 +30,9 @@ const habitaciones = () => {
           <div className="control" onClick={openDateSelector}>
             <span>Fechas: </span>09 oct 2024 - 13 oct 2024
           </div>
-          <button>
-
-          </button>
+          <button className="reserve-button">
+            <Link href="/reservas">Reservas</Link>
+            </button>
         </div>
 
         <RoomSection title="Recomendados" rooms={[]} />
