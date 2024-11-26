@@ -1,26 +1,35 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  align-items: center;
+}
 .eventos {
+  display: flex;
   width: 282px;
   height: 1102px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
-  display: flex;
+  text-align: center;
 }
 
 .eventos-card {
+  display: flex;
   width: 281px;
   height: 259px;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
-  border: 1px solid #ddd; /* Borde de la tarjeta */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-  overflow: hidden; /* Asegura que el contenido no se desborde */
-  text-align: center; /* Centra el contenido */
-  margin: 16px auto; /* Centra horizontalmente */
-  background-color: #fff; /* Fondo blanco */
+  border-radius: 0px 0px 5px 5px;
+  border: 1px solid #b8136f;
 }
 
 .eventos-card img {
@@ -30,9 +39,17 @@
 }
 
 .eventos-card h3 {
-  background-color: #a0007e; /* Color de fondo del título */
   color: #fff; /* Color del texto */
   font-size: 18px; /* Tamaño del texto */
   font-weight: bold; /* Texto en negrita */
   padding: 12px;
+}
+
+.title {
+  width: 100%;
+  background-color: #b8136f;
+  background: #b8136f;
+}
+.text {
+  width: 100%;
 }
