@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
-import './PersonSelector.css';
+import React, { useState } from "react";
+import "./PersonSelector.css";
 
 interface PersonSelectorProps {
   isOpen: boolean;

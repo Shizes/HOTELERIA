@@ -1,7 +1,8 @@
 "use client";
 
-import React from 'react';
-import './DateSelector.css';
+import React, { useState } from "react";
+import Calendar from "@/Components/calendar"; // Ruta ajustada según tu estructura
+import "./DateSelector.css";
 
 interface DateSelectorProps {
   isOpen: boolean;
@@ -9,14 +10,24 @@ interface DateSelectorProps {
 }
 
 const DateSelector: React.FC<DateSelectorProps> = ({ isOpen, onClose }) => {
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+
   if (!isOpen) return null;
+
+  const handleSubmit = () => {
+    console.log("Fecha seleccionada:", selectedDate);
+    onClose();
+  };
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h3>Seleccione las fechas</h3>
-        <p>**Aquí iría el componente de calendario**</p>
-        <button className="confirm-button" onClick={onClose}>
+        <h3>Seleccione una fecha</h3>
+        <Calendar
+          selected={selectedDate}
+          onSelect={(date) => setSelectedDate(date as Date)}
+        />
+        <button className="confirm-button" onClick={handleSubmit}>
           Hecho
         </button>
       </div>
