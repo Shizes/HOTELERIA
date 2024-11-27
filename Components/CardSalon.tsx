@@ -16,7 +16,7 @@ const CardSalon = ({ salon }: SalonProps) => {
         <div className='card'>
           <img src={salon.image} alt={salon.name} />
           <div className='descript'>
-            <h3>{salon.name}</h3> 
+            <p>{salon.name}</p> 
             <button><img src="/icon/botnondesplegable.svg" alt="" /></button>
           </div>
         </div>
