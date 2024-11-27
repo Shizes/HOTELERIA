@@ -25,7 +25,7 @@ export default async function ApiEvents() {
   };
 
   return (
-    <div>
+    <div className="eventos">
       <h2 style={titleStyle}>Tipo de Eventos</h2>
       {cardEvents.map((card) => (
         <CardEvento key={card.id} cardEvent={card} />
