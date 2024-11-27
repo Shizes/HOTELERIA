@@ -1,41 +1,32 @@
 "use client";
 
 import React, { useState } from "react";
-import { registerUser } from "@/lib/api"; 
+import { useRouter } from "next/navigation"; // Importa el router
+import { registerUser } from "@/lib/api";
 import "./RegisterForm.css";
 
 const RegisterForm = () => {
-  // Estado para los datos del formulario
   const [formData, setFormData] = useState({
-    name: "", // Clave correcta para el nombre
+    name: "",
     email: "",
     password: "",
   });
-
-  // Estado para manejar errores y mensajes de éxito
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // Manejar cambios en los inputs
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
+  const router = useRouter(); // Instancia del router
 
-  // Manejar envío del formulario
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Evitar el comportamiento por defecto
+    e.preventDefault();
     try {
-      await registerUser(formData); // Envía los datos a la API
+      await registerUser(formData);
       setSuccess("Usuario registrado exitosamente");
-      setError(""); // Limpia errores previos
-      setFormData({ name: "", email: "", password: "" }); // Limpia el formulario
+      setError("");
+      setFormData({ name: "", email: "", password: "" });
+      router.push("/perfil"); // Redirige a la página de perfil
     } catch (error) {
       setError("Hubo un problema al registrar el usuario");
-      setSuccess(""); // Limpia mensajes de éxito previos
+      setSuccess("");
     }
   };
 
@@ -45,10 +36,12 @@ const RegisterForm = () => {
         <label htmlFor="name">Nombre Completo</label>
         <input
           type="text"
-          id="name" // Cambiado de "nombre" a "name" para que coincida con el estado
+          id="name"
           placeholder="Escribe tu nombre completo"
-          value={formData.name} // Sincroniza con el estado
-          onChange={handleChange}
+          value={formData.name}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, name: e.target.value }))
+          }
           required
         />
       </div>
@@ -56,10 +49,12 @@ const RegisterForm = () => {
         <label htmlFor="email">Correo o Celular</label>
         <input
           type="email"
-          id="email" // ID correcto
+          id="email"
           placeholder="Escribe tu correo/celular"
-          value={formData.email} // Sincroniza con el estado
-          onChange={handleChange}
+          value={formData.email}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, email: e.target.value }))
+          }
           required
         />
       </div>
@@ -67,29 +62,17 @@ const RegisterForm = () => {
         <label htmlFor="password">Contraseña</label>
         <input
           type="password"
-          id="password" // ID correcto
+          id="password"
           placeholder="Escribe tu contraseña"
-          value={formData.password} // Sincroniza con el estado
-          onChange={handleChange}
+          value={formData.password}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, password: e.target.value }))
+          }
           required
         />
-        <p className="helper-text">Debe tener más de 8 caracteres</p>
       </div>
-      <div className="terms">
-        <input type="checkbox" id="terms" required />
-        <label htmlFor="terms">
-          Al crear una cuenta, aceptas los{" "}
-          <a href="/terminos" className="link">
-            Términos y Condiciones
-          </a>{" "}
-          y nuestra{" "}
-          <a href="/privacidad" className="link">
-            Política de Privacidad
-          </a>.
-        </label>
-      </div>
-      {error && <p className="error-text">{error}</p>} {/* Mensaje de error */}
-      {success && <p className="success-text">{success}</p>} {/* Mensaje de éxito */}
+      {error && <p className="error-text">{error}</p>}
+      {success && <p className="success-text">{success}</p>}
       <button type="submit" className="submit-button">
         Crear Cuenta
       </button>
