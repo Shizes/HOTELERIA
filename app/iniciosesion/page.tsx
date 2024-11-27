@@ -2,7 +2,9 @@ import React from 'react'
 
 const iniciarsesion = () => {
   return (
-    <div>iniciarsesion</div>
+    <div>
+      inciios
+    </div>
   )
 }
 
