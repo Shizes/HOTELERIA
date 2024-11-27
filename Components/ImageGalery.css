@@ -1,0 +1,46 @@
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 10px; /* Espaciado entre imágenes */
+    max-width: 375px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding-top: 10px; /* Padding superior */
+
+  }
+  
+  .gallery-item {
+    width: 100%; /* Asegura que las imágenes ocupen todo el espacio del contenedor */
+    height: auto;
+    overflow: hidden;
+    border-radius: 4%;
+  }
+  
+  .gallery-image {
+    width: 100%; /* Escala las imágenes al tamaño del contenedor */
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Mantén el recorte de las imágenes centrado */
+    transition: transform 0.3s ease-in-out; /* Animación para el zoom */
+    cursor: pointer;
+  }
+  
+  /* Fondo oscuro al hacer zoom */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro translúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .zoomed-image {
+    max-width: 90%; /* Tamaño máximo relativo al viewport */
+    max-height: 90%; /* Evita que la imagen sobrepase el viewport */
+    transition: transform 0.3s ease-in-out; /* Transición para el zoom */
+    cursor: pointer;
+  }
+  
