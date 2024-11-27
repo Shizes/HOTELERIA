@@ -25,7 +25,7 @@ const CardEvento = ({ cardEvent }: CardEventProps) => {
               <img src="/icon/plus_mas.png" alt="mas" /> Descripcion
             </button>
           </div>
-          <div className="deplegable"><p>{cardEvent.description}</p></div>
+          <div className="deplegable"><p className="description">{cardEvent.description}</p></div>
         </div>
       </div>
     </section>

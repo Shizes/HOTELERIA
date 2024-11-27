@@ -1,0 +1,51 @@
+.eventos-container {
+    position: relative;
+    height: 400px; /* Ajusta según sea necesario */
+    background-image: url('/background.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+  }
+  
+  /* Superposición de color */
+  .eventos-overlay {
+    background-color: rgba(153, 0, 102, 0.5); /* Superposición morada con opacidad */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Título del evento */
+  .eventos-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Descripción */
+  .eventos-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+  
+  /* Ícono */
+  .eventos-icon img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .eventos-icon img:hover {
+    transform: scale(1.1);
+  }
