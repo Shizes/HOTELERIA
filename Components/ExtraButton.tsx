@@ -5,7 +5,7 @@ import "./ExtraButton.css";
 const ExtraButton = () => {
   return (
     <div className="extra-button-container">
-      <Link href="/suite-ejecutivas">
+      <Link href="/SuiteEjecutivas">
         <button className="extra-button">Suites Ejecutivas</button>
       </Link>
     </div>
