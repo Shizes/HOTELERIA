@@ -13,9 +13,6 @@ const PortadaEvento = () => {
           de eventos únicos. <br />
           <strong> A LA MEDIDA DE TUS OBJETIVOS.</strong>”
         </p>
-        <div className="eventos-icon">
-          <img src="/img/cumpleaños.svg" alt="" />
-        </div>
       </div>
     </section>
   )
