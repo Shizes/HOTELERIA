@@ -24,7 +24,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-icons">
           <button className="navbar-button">
-            <Link href="/InicioSesion">
+            <Link href="/iniciosesion">
             <Image
               src="/icons/user.svg" // Asegúrate de que este archivo exista en /public/icons
               alt="Usuario"
