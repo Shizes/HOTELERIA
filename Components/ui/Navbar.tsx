@@ -24,12 +24,14 @@ const Navbar = () => {
         </div>
         <div className="navbar-icons">
           <button className="navbar-button">
+            <Link href="/InicioSesion">
             <Image
               src="/icons/user.svg" // Asegúrate de que este archivo exista en /public/icons
               alt="Usuario"
               width={32}
               height={32}
             />
+            </Link>
           </button>
           <button
             className="navbar-button"
