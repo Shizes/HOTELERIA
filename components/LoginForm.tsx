@@ -1,25 +1,28 @@
 "use client";
 
 import React, { useState } from "react";
-import { loginUser } from "@/lib/api"; // Importa la función de la API
+import { useRouter } from "next/navigation"; // Importa el router
+import { loginUser } from "@/lib/api";
 import "./LoginForm.css";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState(""); // Estado para el email
-  const [password, setPassword] = useState(""); // Estado para la contraseña
-  const [error, setError] = useState(""); // Estado para errores
-  const [success, setSuccess] = useState(""); // Estado para mensajes de éxito
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  // Manejar el envío del formulario
+  const router = useRouter(); // Instancia del router
+
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Previene la recarga de la página
+    e.preventDefault();
     try {
-      const user = await loginUser(email, password); // Envía las credenciales a la API
-      setSuccess(`Bienvenido, ${user.name}`); // Mensaje de éxito
-      setError(""); // Limpia errores previos
+      const user = await loginUser(email, password);
+      setSuccess(`Bienvenido, ${user.name}`);
+      setError("");
+      router.push("/principal"); // Redirige a la página principal
     } catch (error) {
-      setError("Usuario o contraseña incorrectos"); // Muestra el error
-      setSuccess(""); // Limpia mensajes de éxito previos
+      setError("Usuario o contraseña incorrectos");
+      setSuccess("");
     }
   };
 
@@ -32,8 +35,8 @@ const LoginForm = () => {
           id="email"
           placeholder="Escribe tu correo/celular"
           className="input-field"
-          value={email} // Sincroniza con el estado
-          onChange={(e) => setEmail(e.target.value)} // Actualiza el estado
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </div>
@@ -44,16 +47,13 @@ const LoginForm = () => {
           id="password"
           placeholder="Escribe tu contraseña"
           className="input-field"
-          value={password} // Sincroniza con el estado
-          onChange={(e) => setPassword(e.target.value)} // Actualiza el estado
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <a href="#" className="forgot-password">
-          ¿Olvidaste tu contraseña?
-        </a>
       </div>
-      {error && <p className="error-text">{error}</p>} {/* Mensaje de error */}
-      {success && <p className="success-text">{success}</p>} {/* Mensaje de éxito */}
+      {error && <p className="error-text">{error}</p>}
+      {success && <p className="success-text">{success}</p>}
       <button type="submit" className="submit-button">
         Iniciar Sesión
       </button>
