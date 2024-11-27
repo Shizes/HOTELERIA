@@ -1,33 +1,33 @@
 import "./CardEvento.css";
-import React from 'react'
+import React from "react";
 
 interface CardEventProps {
   cardEvent: {
     id: string;
     name: string;
+    avatar: string;
     description: string;
-    image: string;
   };
 }
 
 const CardEvento = ({ cardEvent }: CardEventProps) => {
   return (
-    <section className="eventos">
-      <div className="eventos-card">
-        <img src={cardEvent.image} alt="" />
+    <section className="eventos-card">
+        <img src={cardEvent.avatar} alt="" />
         <div className="text">
           <div className="title">
             <h3>{cardEvent.name}</h3>
           </div>
-          <div>
-            <button>Reservar</button>
+          <div className="botones">
+            <button className="reser">Reservar</button>
             <button>
               <img src="/icon/plus_mas.png" alt="mas" /> Descripcion
             </button>
           </div>
-          <div className="deplegable"><p className="description">{cardEvent.description}</p></div>
+          <div className="deplegable">
+            <p className="description">{cardEvent.description}</p>
+          </div>
         </div>
-      </div>
     </section>
   );
 };

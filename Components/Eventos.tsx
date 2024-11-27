@@ -5,7 +5,7 @@ import CardEvento from "./CardEvento";
 interface CardEventsType {
   id: string;
   name: string;
-  image: string;
+  avatar: string;
   description: string;
 }
 
