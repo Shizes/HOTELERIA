@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react"; // Asegúrate de importar useState
-import { registerUser } from "@/lib/api"; // Importa la función de la API
+import React, { useState } from "react";
+import { registerUser } from "@/lib/api"; 
 import "./RegisterForm.css";
 
 const RegisterForm = () => {
