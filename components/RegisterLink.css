@@ -1,0 +1,16 @@
+.register {
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .register a {
+    color: #a91f8c;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .register a:hover {
+    text-decoration: underline;
+  }
+  
