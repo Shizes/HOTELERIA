@@ -1,0 +1,54 @@
+.services-list {
+  text-align: center;
+  padding: 20px;
+  max-width: 375px; /* Ancho máximo */
+  margin: 0 auto; /* Centrar el contenedor */
+}
+
+.services-title {
+  max-height: 45px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #a91f8c;
+  margin-bottom: 40px;
+}
+
+/* Diseño de cuadrícula para los servicios */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 150px); /* Dos columnas del mismo tamaño */
+  gap: 20px; /* Espacio entre filas y columnas */
+  justify-items: center; /* Centrar los elementos dentro de sus columnas */
+}
+
+/* Tarjeta de servicio */
+.service-item {
+  background-color: #fce4f8;
+  width: 150px; /* Ancho fijo */
+  height: 150px; /* Alto fijo */
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(173, 17, 137, 0.3); /* Sombra ligera */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Espaciado interno */
+}
+
+/* Ícono de servicio */
+.service-icon {
+  width: 40px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Título del servicio */
+.service-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #a80085;
+  margin-top: 5px;
+}
