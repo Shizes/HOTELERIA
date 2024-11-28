@@ -24,7 +24,7 @@ const CardEvento = ({ cardEvent }: CardEventProps) => {
         </div>
         <div className="botones">
           <button className="det" onClick={() => setIsOpen(!isOpen)}>
-            <Image src="/img/plus.png" height={20} width={20} alt="" />{" "}
+            <Image src={isOpen ? "/img/minus-sign.png" : "/img/plus.png"} height={20} width={20} alt="" />{" "}
             <p>{isOpen ? "OCULTAR" : "DESCRIPCIÓN"}</p>
           </button>
           <Link href={`/salones`}>
