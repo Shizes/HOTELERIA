@@ -1,0 +1,36 @@
+.calendar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; /* Asegura un tamaño mínimo */
+  }
+  
+  .react-day-picker {
+    font-size: 14px;
+  }
+  
+  .react-day-picker__month {
+    margin: 0 auto;
+    width: 90%; /* Ajusta el ancho */
+    max-width: 320px; /* Centra y limita el tamaño en pantallas grandes */
+  }
+  
+  .react-day-picker__day {
+    padding: 10px;
+    margin: 2px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .react-day-picker__day--selected {
+    background-color: #cc00ff;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #a100cc;
+  }
+  
+  .react-day-picker__day:hover {
+    background-color: #a100cc;
+    color: white;
+  }
+  

@@ -1,20 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import "./PersonSelector.css";
 
 interface PersonSelectorProps {
   isOpen: boolean;
   onClose: () => void;
+  count: number;
+  setCount: (value: number) => void;
 }
 
-const PersonSelector: React.FC<PersonSelectorProps> = ({ isOpen, onClose }) => {
-  const [count, setCount] = useState(1);
-
+const PersonSelector: React.FC<PersonSelectorProps> = ({
+  isOpen,
+  onClose,
+  count,
+  setCount,
+}) => {
   if (!isOpen) return null;
 
-  const increment = () => setCount((prev) => Math.min(prev + 1, 10));
-  const decrement = () => setCount((prev) => Math.max(prev - 1, 1));
+  const increment = () => setCount(Math.min(count + 1, 10));
+  const decrement = () => setCount(Math.max(count - 1, 1));
 
   return (
     <div className="modal-overlay">

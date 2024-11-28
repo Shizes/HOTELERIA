@@ -1,28 +1,40 @@
+/* Estilo para los controles de reserva */
 .reservation-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f9f9f9;
-    padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  flex: 1 1 calc(33% - 10px); /* 3 elementos por fila */
+}
+
+.control img {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .reservation-controls {
+    flex-direction: column; /* Cambia a columna para pantallas pequeñas */
   }
-  
+
   .control {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #333;
+    flex: 1 1 100%; /* Cada control ocupa toda la fila */
   }
-  
-  .control-icon {
-    width: 20px;
-    height: 20px;
-  }
+}
+
   
   .reserve-button {
     background-color: #c022a3;

@@ -18,7 +18,18 @@
     width: 90%;
     max-width: 400px;
     position: relative;
+    overflow: hidden; /* Evita desplazamientos innecesarios */
   }
+  
+  /* Asegura que en móviles el modal ocupe todo el espacio disponible */
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 100%;
+      height: auto;
+      padding: 16px;
+    }
+  }
+  
   
   .modal-close {
     position: absolute;
@@ -28,5 +39,20 @@
     border: none;
     font-size: 16px;
     cursor: pointer;
+  }
+  .confirm-button {
+    background-color: #cc00ff;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%; /* Botón de ancho completo */
+    max-width: 300px; /* Ancho máximo */
+  }
+  
+  .confirm-button:hover {
+    background-color: #a100cc;
   }
   
