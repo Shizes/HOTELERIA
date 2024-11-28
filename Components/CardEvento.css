@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  align-items: center;
+}
+.eventos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 375px;
+  height: auto;
+}
+
+.eventos-card {
+  display: flex;
+  width: 281px;
+  height: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0px 0px 5px 5px;
+  border: 1px solid #b8136f;
+  margin-bottom: 20px;
+}
+
+.eventos-card img {
+  width: 100%; /* La imagen ocupa todo el ancho */
+  height: auto; /* Mantiene la proporción */
+  object-fit: cover; /* Ajusta la imagen para que encaje */
+}
+
+.title h3 {
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.title {
+  background-color: #b8136f;
+  background: #b8136f;
+  display: flex;
+  width: 281px;
+  height: 38px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.description {
+  font-size: 10px;
+}
+
+.reser {
+  border-radius: 1px;
+  background: #a91f8c;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 10px;
+  width: 81px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.botones {
+  display: flex;
+  width: 281px;
+  height: 56px;
+  align-items: center;
+  gap: 60px;
+  flex-shrink: 0;
+}
+
+.det {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-left: 18px;
+}
+.det p {
+  color: #000;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 10px;
+}
+
+.det img {
+  width: 20px;
+  height: 20px;
+}
+
+.description{
+  margin: 15px;
+  
+}
+.deplegable {
+  max-height: 0; /* Oculto inicialmente */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out; /* Transición suave */
+}
+.deplegable.show {
+  max-height: 500px; /* Ajusta según el contenido máximo */
+}
