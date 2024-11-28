@@ -1,44 +1,36 @@
-.gallery-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-  gap: 10px; /* Espaciado entre imágenes */
-  max-width: 375px; /* Ancho máximo del contenedor */
-  margin: 0 auto; /* Centrar el contenedor */
-  padding-top: 10px; /* Padding superior */
+.galery-container {
+  max-width: 100%; /* Asegura que ocupe todo el ancho del contenedor padre */
+  margin: 0 auto; /* Centra el contenedor */
+  position: relative;
+  padding: 10px; /* Espaciado interno opcional */
 }
 
-.gallery-item {
-  width: 100%; /* Asegura que las imágenes ocupen todo el espacio del contenedor */
-  height: auto;
-  overflow: hidden;
-  border-radius: 1px;
-}
-
-.gallery-image {
-  width: 100%; /* Escala las imágenes al tamaño del contenedor */
-  height: 150px; /* Altura fija para las imágenes */
-  object-fit: cover; /* Mantén el recorte de las imágenes centrado */
-  transition: transform 0.3s ease-in-out; /* Animación para el zoom */
-  cursor: pointer;
-}
-
-/* Fondo oscuro al hacer zoom */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro translúcido */
+.galery-image {
+  position: relative;
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Permite que la altura sea dinámica */
+  aspect-ratio: 16 / 9; /* Relación de aspecto para mantener proporciones */
+  background-image: linear-gradient(
+      rgba(124, 35, 103, 0.658),
+      rgba(172, 20, 136, 0.473)
+    ),
+    url("/img/airelibre.jpg");
+  background-size: cover; /* Escala la imagen para cubrir el contenedor */
+  background-position: center;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  filter: brightness(0.6); /* Aplica una tonalidad más oscura */
+  border-radius: 8px; /* Bordes redondeados */
 }
 
-.zoomed-image {
-  max-width: 90%; /* Tamaño máximo relativo al viewport */
-  max-height: 90%; /* Evita que la imagen sobrepase el viewport */
-  transition: transform 0.3s ease-in-out; /* Transición para el zoom */
-  cursor: pointer;
+.galery-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 28px; /* Tamaño más pequeño para pantallas pequeñas */
+  color: white;
+  text-align: center;
+  padding: 10px; /* Espaciado interno */
+  max-width: 90%; /* Asegura que el texto no se desborde */
+  line-height: 1.4; /* Mejora la legibilidad */
 }

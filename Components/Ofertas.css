@@ -1,114 +1,144 @@
 .offers-list {
-  max-width: 375px; /* Ancho máximo */
-  margin: 0px auto; /* Centrar el contenedor */
-  text-align: center;
   padding: 20px;
-  background-color: transparent;
+  background-color: #f9f9f9;
+  margin-bottom: 0; /* Elimina el margen inferior */
 }
-
 .offers-title {
-  font-size: 26px; /* Tamaño de fuente del título principal */
+  font-size: 26px;
   font-weight: bold;
-  color: #8b008b;
+  color: #a91f8c;
+  text-align: center;
   margin-bottom: 10px;
-  font-family: poppins;
 }
 
 .offers-subtitle {
-  font-size: 16px; /* Tamaño de fuente del subtítulo */
+  font-size: 16px;
   color: #6d6d6d;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-.offers-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 170px); /* Dos columnas fijas de 170px */
-  gap: 10px; /* Espacio entre las tarjetas */
+.carousel-container {
+  position: relative;
+  overflow: hidden; /* Oculta las ofertas fuera del contenedor */
+  width: 100%;
+  height: 400px; /* Ajusta la altura según el diseño */
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.offer-item {
-  background-color: white;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 170px; /* Ancho fijo para cada tarjeta */
-  height: 250px; /* Alto fijo para cada tarjeta */
-  display: flex;
-  flex-direction: column;
+.carousel-item {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 350px; /* Ajusta el tamaño de la tarjeta */
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 1s ease-in-out;
   text-align: center;
 }
 
+.carousel-item.active {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
 .offer-image {
-  width: 100%;
-  height: 120px; /* Altura fija para la imagen */
-  object-fit: cover; /* Ajusta la imagen al contenedor */
+  margin: 0 auto; /* Centra la imagen dentro de la tarjeta */
+  display: block;
+  border-radius: 10px; /* Opcional: bordes redondeados */
+}
+.carousel-item.inactive {
+  left: -100%;
+  opacity: 0;
 }
 
-.offer-details {
-  padding: 10px;
-  flex: 1; /* Permite que los detalles ocupen el espacio disponible */
-}
-
-.offer-name {
-  font-size: 16px; /* Tamaño de la fuente del nombre */
+.offer-title {
+  font-size: 18px;
   font-weight: bold;
-  color: #4a4a4a;
-  margin-bottom: 8px;
+  color: #333;
+  margin: 10px 0;
 }
 
-.offer-prices {
+.price-container {
   display: flex;
   justify-content: center;
-  gap: 5px; /* Espacio entre precios */
-  align-items: baseline;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 10px;
 }
 
-.old-price {
-  font-size: 14px;
-  color: #999;
-  text-decoration: line-through;
-}
-
-.new-price {
+.offer-price {
   font-size: 16px;
   font-weight: bold;
-  color: #e74c3c;
+  color: #333;
 }
 
-.offer-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px; /* Espaciado horizontal en los extremos */
+.offer-discount {
+  font-size: 14px;
+  color: #9E9E9E;
+  text-decoration: line-through;
 }
 
 .offer-availability {
   font-size: 14px;
+  font-weight: bold;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 20px;
+  display: inline-block;
+  text-align: center;
 }
 
 .available {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #23A26D;
+  color: white;
 }
 
 .unavailable {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #EA5457;
+  color: white;
 }
 
-.offer-button {
-  background-color: transparent;
+.availability-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.cart-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #A91F8C;
   border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0;
+  transition: transform 0.2s ease-in-out;
 }
 
-.offer-button img {
-  width: 20px; /* Tamaño del icono del carrito */
-  height: 20px;
+.cart-icon:hover {
+  transform: scale(1.1);
+}
+
+.cart-icon img {
+  width: 24px;
+  height: 24px;
+}
+.testimonials-container {
+  margin-top: 0; /* Ajusta este margen */
+  padding-top: 20px; /* Asegúrate de usar solo el espacio necesario */
+}
+.offers-title a {
+  text-decoration: none; /* Quita el subrayado */
+  color: inherit; /* Mantiene el color original del título */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.offers-title a:hover {
+  color: #6200ea; /* Cambia el color al pasar el mouse si deseas un efecto */
 }

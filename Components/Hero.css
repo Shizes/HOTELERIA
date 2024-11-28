@@ -62,3 +62,24 @@ body {
   margin-top: 1rem;
   border-radius: 5px;
 }
+.hero-button {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin bordes */
+  width: auto; /* Ajusta al contenido */
+  height: auto; /* Ajusta al contenido */
+  display: flex; /* Usa flexbox para centrar */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  margin: 20px auto; /* Centra el botón en el contenedor */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: transform 0.2s ease; /* Agrega un efecto suave */
+  scale: 3;
+}
+
+.hero-button:hover {
+  transform: scale(1.2); /* Efecto de zoom al pasar el mouse */
+}
+.hero-button-icon {
+  width: 50px; /* Tamaño del SVG */
+  height: auto; /* Proporcional al ancho */
+}

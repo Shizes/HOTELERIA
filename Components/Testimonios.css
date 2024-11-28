@@ -1,102 +1,114 @@
 .testimonials-container {
-    max-width: 375px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .testimonials-title {
-    font-size: 26px;
-    font-weight: bold;
-    color: #8b008b;
-    margin-bottom: 10px;
-    font-family: poppins;
-  }
-  
-  .testimonials-subtitle {
-    font-size: 14px;
-    color: #6d6d6d;
-    margin-bottom: 20px;
-  }
-  
-  .testimonial-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .testimonial-card {
-    background-color: #f9f9f9;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: 90%;
-  }
-  
-  .testimonial-item {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .testimonial-text {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #4a4a4a;
-  }
-  
-  .testimonial-footer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .testimonial-logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-  
-  .testimonial-author {
-    font-size: 14px;
-    font-weight: bold;
-    color: #8b008b;
-  }
-  
-  .testimonial-role {
-    font-size: 12px;
-    color: #6d6d6d;
-  }
-  
-  .nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #eaeaea;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-    color: #6d6d6d;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .nav-button:hover {
-    background-color: #d4d4d4;
-  }
-  
-  .left-button {
-    left: -40px; /* Botón a la izquierda, fuera del área del testimonio */
-  }
-  
-  .right-button {
-    right: -40px; /* Botón a la derecha, fuera del área del testimonio */
-  }
-  
+  max-width: 100%; /* Ocupa el ancho total del contenedor */
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px; /* Reduce el padding superior e inferior */
+  background-color: #f8f9fa; /* Fondo claro para resaltar el contenido */
+  border-radius: 12px; /* Bordes redondeados para suavizar el diseño */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera para destacar */
+}
+.offer-list{
+  margin-bottom: 0;
+}
+.testimonials-title {
+  font-size: 24px; /* Tamaño ajustado para pantallas pequeñas */
+  font-weight: bold;
+  color: #8b008b; /* Color destacado */
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.testimonials-subtitle {
+  font-size: 14px;
+  color: #6d6d6d;
+  margin-bottom: 20px;
+}
+
+.testimonial-wrapper {
+  position: relative; /* Necesario para que los botones se posicionen en relación al contenedor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px; /* Añade espacio para que los botones no se solapen con el contenido */
+  font-family: "Poppins";
+}
+
+.testimonial-card {
+  background-color: #ffffff; /* Fondo blanco para mayor contraste */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+  text-align: left;
+  width: 90%; /* Ocupa la mayor parte del contenedor */
+  max-width: 375px; /* Tamaño máximo para pantallas grandes */
+  margin: 0 auto; /* Centra el cuadro */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añade efecto al pasar el ratón */
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px); /* Eleva ligeramente el cuadro */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al pasar el ratón */
+}
+
+.testimonial-text {
+  font-size: 14px; /* Tamaño legible */
+  line-height: 1.6; /* Espaciado suficiente entre líneas */
+  color: #4a4a4a; /* Contraste adecuado */
+  text-align: center; /* Justifica el texto para una mejor presentación */
+  margin-bottom: 20px;
+  padding: 0 10px; /* Espaciado interno para mejor legibilidad */
+}
+
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0px;
+}
+
+.testimonial-logo {
+  width: 50px; /* Tamaño ligeramente más grande */
+  height: 50px;
+  border-radius: 50%;
+}
+
+.testimonial-author {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8b008b;
+}
+
+.testimonial-role {
+  font-size: 12px;
+  color: #6d6d6d;
+  font-family: "Poppins";
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%; /* Centra verticalmente en el contenedor */
+  transform: translateY(-50%); /* Ajusta la posición al centro */
+  background-color: #eaeaea;
+  border: none;
+  border-radius: 50%; /* Botones redondeados */
+  width: 30px;
+  height: 30px;
+  font-size: 16px; /* Ajusta el tamaño del icono */
+  color: #6d6d6d;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+  background-color: #d4d4d4; /* Color más oscuro al pasar el mouse */
+}
+.left-button {
+  left: -5px; /* Ajusta la posición para estar cerca del borde izquierdo */
+}
+
+.right-button {
+  right: -5px; /* Ajusta la posición para estar cerca del borde derecho */
+}
