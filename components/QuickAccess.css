@@ -1,0 +1,35 @@
+.quick-access {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  
+  .icon-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .icon-button img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon-button:hover img {
+    transform: scale(1.1);
+  }
+  
+  .icon-button:focus img {
+    outline: 2px solid #a91f8c;
+    outline-offset: 4px;
+  }
+  

@@ -1,0 +1,62 @@
+.room-section {
+  margin: 32px 0;
+  padding: 0 16px;
+}
+
+.room-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.room-section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.room-section-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.room-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* Aplicar estilos de scroll solo para "Recomendados" */
+.room-section-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 16px;
+}
+
+.room-section-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.room-section-scroll::-webkit-scrollbar-thumb {
+  background-color: #a50082;
+  border-radius: 8px;
+}
+
+.room-section-scroll::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}

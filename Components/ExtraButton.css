@@ -1,0 +1,21 @@
+.extra-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .extra-button {
+    background-color: #a50082;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .extra-button:hover {
+    background-color: #810067;
+  }
+  

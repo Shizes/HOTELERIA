@@ -1,6 +1,7 @@
 "use client";
-import "./ProfileForm.css";
+
 import React, { useState } from "react";
+import "./ProfileForm.css";
 
 const EditProfile = () => {
   const [formData, setFormData] = useState({

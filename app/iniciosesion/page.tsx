@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import Portada from '@/components/portada';
+import LoginForm from '@/components/LoginForm';
+import QuickAccess from '@/components/QuickAccess';
+import RegisterLink from '@/components/RegisterLink';
 
-const iniciarsesion = () => {
+const InicioSesion = () => {
   return (
-    <div>iniciarsesion</div>
-  )
-}
+    <div>
+      <Portada />
+      <main>
+        <LoginForm />
+        <QuickAccess />
+        <RegisterLink />
+      </main>
+    </div>
+  );
+};
 
-export default iniciarsesion
+export default InicioSesion;
