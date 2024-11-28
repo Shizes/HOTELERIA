@@ -108,3 +108,11 @@ body {
   margin: 15px;
   
 }
+.deplegable {
+  max-height: 0; /* Oculto inicialmente */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out; /* Transición suave */
+}
+.deplegable.show {
+  max-height: 500px; /* Ajusta según el contenido máximo */
+}
