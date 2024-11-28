@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./tabs.css";
 type TabsProps = {
   activeTab: string;
   setActiveTab: (tab: string) => void;
