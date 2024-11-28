@@ -31,6 +31,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 87px;
+  height: auto;
+  flex-shrink: 0;
 }
 
 .descript p {
@@ -40,14 +43,20 @@ body {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  width: 68.548px;
+  height: auto;
+  flex-shrink: 0;
+  margin: 5px;
 }
 
 .descripcion {
   width: 100%;
   height: 109px;
+ /* margin-top: 15px;*/
 }
 .descripcion img {
   width: 100%;
+  height: 100%;
 }
 
 .image-container {
