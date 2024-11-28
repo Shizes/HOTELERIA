@@ -23,7 +23,7 @@ const CardEvento = ({ cardEvent }: CardEventProps) => {
           <button className="det">
             <Image src="/img/plus.png" height={20} width={20} alt="" /> <p>DESCRIPCIÓN</p>
           </button>
-          <button className="reser">Reservar</button>
+          <a href="../armados/page.tsx"> <button className="reser">Reservar</button></a>
         </div>
         <div className="deplegable">
           <p className="description">{cardEvent.description}</p>
