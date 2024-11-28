@@ -1,0 +1,114 @@
+.offers-list {
+  max-width: 375px; /* Ancho máximo */
+  margin: 0px auto; /* Centrar el contenedor */
+  text-align: center;
+  padding: 20px;
+  background-color: transparent;
+}
+
+.offers-title {
+  font-size: 26px; /* Tamaño de fuente del título principal */
+  font-weight: bold;
+  color: #8b008b;
+  margin-bottom: 10px;
+  font-family: poppins;
+}
+
+.offers-subtitle {
+  font-size: 16px; /* Tamaño de fuente del subtítulo */
+  color: #6d6d6d;
+  margin-bottom: 20px;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 170px); /* Dos columnas fijas de 170px */
+  gap: 10px; /* Espacio entre las tarjetas */
+  justify-content: center;
+}
+
+.offer-item {
+  background-color: white;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 170px; /* Ancho fijo para cada tarjeta */
+  height: 250px; /* Alto fijo para cada tarjeta */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.offer-image {
+  width: 100%;
+  height: 120px; /* Altura fija para la imagen */
+  object-fit: cover; /* Ajusta la imagen al contenedor */
+}
+
+.offer-details {
+  padding: 10px;
+  flex: 1; /* Permite que los detalles ocupen el espacio disponible */
+}
+
+.offer-name {
+  font-size: 16px; /* Tamaño de la fuente del nombre */
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-bottom: 8px;
+}
+
+.offer-prices {
+  display: flex;
+  justify-content: center;
+  gap: 5px; /* Espacio entre precios */
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.old-price {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.new-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.offer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px; /* Espaciado horizontal en los extremos */
+}
+
+.offer-availability {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.available {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.unavailable {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.offer-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.offer-button img {
+  width: 20px; /* Tamaño del icono del carrito */
+  height: 20px;
+}

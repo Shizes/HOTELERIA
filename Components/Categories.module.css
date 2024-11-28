@@ -1,0 +1,52 @@
+.categoriesSection {
+  max-width: 375px;
+  margin: 0px auto;
+  padding: 10px;
+}
+
+/* Diseño de grilla */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(111px, 98px)); /* Diseño responsivo */
+  gap: 10px; /* Espaciado entre elementos */
+}
+
+/* Tarjetas */
+.categoryCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 80px; 
+  background-size: cover; /* Escalar la imagen al tamaño del contenedor */
+  background-position: center; /* Centrar la imagen */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end; /* Título al pie de la tarjeta */
+  justify-content: center; /* Centrar el texto horizontalmente */
+  text-align: center;
+  box-shadow: 0 4px 6px rgb(173, 17, 137);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.categoryCard:hover {
+  transform: scale(1.05); /* Efecto de zoom */
+  box-shadow: 0 6px 12px rgba(173, 17, 137, 0.829);
+}
+
+/* Título con fondo oscuro */
+.categoryTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: white; /* Texto en blanco */
+  margin: 0;
+  padding: 10px 15px;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.041)
+  ); /* Degradado para el fondo del título */
+  border-radius: 0 0 10px 10px; /* Bordes redondeados en la parte inferior */
+}

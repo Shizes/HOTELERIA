@@ -1,0 +1,28 @@
+.galery-container {
+    max-width: 375px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .galery-image {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Ajusta el tamaño de la imagen según sea necesario */
+    background-image: 
+    linear-gradient(rgba(124, 35, 103, 0.658), rgba(172, 20, 136, 0.473)), 
+    url("/img/airelibre.jpg");    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(0.6); /* Aplica una tonalidad más oscura */
+  }
+  
+  .galery-title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    color: white;
+    text-align: center;
+  }
+  

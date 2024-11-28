@@ -4,14 +4,14 @@ import React, { useState } from "react";
 import "./ImageGalery.css";
 
 const images = [
-  "/Principal/kenti.png",
-  "/Principal/kenti.png",
-  "/Principal/kenti.png",
-  "/Principal/kenti.png",
-  "/Principal/kenti.png",
-  "/Principal/kenti.png",
-  "/Principal/kenti.png",
-  "/Principal/kenti.png",
+  "/img/events_principal.jpg",
+  "/img/restaurants_principal.jpg",
+  "/img/achalay.jpg",
+  "/img/corporativos.jpg",
+  "/img/tsui.jpg",
+  "/img/nutsuwara.jpg",
+  "/img/munacuy.jpg",
+  "/img/fonditohabitaciones.jpg",
 ];
 
 const ImageGallery = () => {
