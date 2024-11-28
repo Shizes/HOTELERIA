@@ -6,7 +6,7 @@ import OffersGrid from "@/Components/OffersGrid";
 import SearchBar from "@/Components/SearchBar";
 import Tabs from "@/Components/Tabs";
 import { getRoomsOffers, getSuitsOffers } from "@/lib/getOffers";
-import { Offer } from "@/lib/types"; // Asegúrate de que el tipo Offer esté bien definido
+import { Offer } from "@/lib/types";
 import "./page.css";
 
 const OfertasPage = () => {
@@ -16,10 +16,6 @@ const OfertasPage = () => {
   const [isLoading, setIsLoading] = useState(true); // Maneja el estado de carga
   const [searchQuery, setSearchQuery] = useState(""); // Término de búsqueda
 
-  // URLs para las ofertas
-  const ROOMS_URL = "https://67439f41b7464b1c2a656481.mockapi.io/offers_R";
-  const SUITS_URL = "https://67439f41b7464b1c2a656481.mockapi.io/offers_S";
-
   // Cargar datos según la pestaña activa
   useEffect(() => {
     const fetchOffers = async () => {
@@ -28,8 +24,8 @@ const OfertasPage = () => {
         let fetchedOffers: Offer[] = [];
 
         if (activeTab === "Todos") {
-          const roomOffers = await getRoomsOffers(ROOMS_URL);
-          const suitOffers = await getSuitsOffers(SUITS_URL);
+          const roomOffers = await getRoomsOffers(); // Llama a la función sin argumentos
+          const suitOffers = await getSuitsOffers(); // Llama a la función sin argumentos
 
           fetchedOffers = [
             ...roomOffers.map((offer) => ({
@@ -44,14 +40,14 @@ const OfertasPage = () => {
             })),
           ];
         } else if (activeTab === "Habitaciones") {
-          const roomOffers = await getRoomsOffers(ROOMS_URL);
+          const roomOffers = await getRoomsOffers(); // Sin argumentos
           fetchedOffers = roomOffers.map((offer) => ({
             ...offer,
             id: `room-${offer.id}`,
             type: "room" as const,
           }));
         } else if (activeTab === "Suits") {
-          const suitOffers = await getSuitsOffers(SUITS_URL);
+          const suitOffers = await getSuitsOffers(); // Sin argumentos
           fetchedOffers = suitOffers.map((offer) => ({
             ...offer,
             id: `suit-${offer.id}`,
@@ -83,29 +79,28 @@ const OfertasPage = () => {
     }
   }, [searchQuery, offers]);
 
- return (
-  <div>
-    <Navbar />
-    <div className="container">
-      <h1 className="title">Oferta de habitaciones</h1>
-      {/* Solo renderiza el contenido cuando los datos estén listos */}
-      {isLoading ? (
-        <p>Cargando ofertas...</p>
-      ) : (
-        <>
-          {/* Tabs */}
-          <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-          {/* Barra de búsqueda */}
-          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          {/* Grid de Ofertas */}
-          <OffersGrid offers={filteredOffers} isLoading={isLoading} />
-        </>
-      )}
+  return (
+    <div>
+      <Navbar />
+      <div className="container">
+        <h1 className="title">Oferta de habitaciones</h1>
+        {/* Solo renderiza el contenido cuando los datos estén listos */}
+        {isLoading ? (
+          <p>Cargando ofertas...</p>
+        ) : (
+          <>
+            {/* Tabs */}
+            <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
+            {/* Barra de búsqueda */}
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            {/* Grid de Ofertas */}
+            <OffersGrid offers={filteredOffers} isLoading={isLoading} />
+          </>
+        )}
+      </div>
+      <Footer />
     </div>
-    <Footer />
-  </div>
-);
-
+  );
 };
 
 export default OfertasPage;
