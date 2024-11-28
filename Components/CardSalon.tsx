@@ -15,7 +15,13 @@ interface SalonProps {
 const CardSalon = ({ salon }: SalonProps) => {
   return (
     <div className="card">
-      <img src={salon.image} alt={salon.name} />
+      <div className="image-container">
+        <img src={salon.image} alt={salon.name} />
+        <button className="cart-button">
+          <Image src="/img/compra.png" width={10} height={10} alt="" />
+        </button>
+      </div>
+
       <div className="descript">
         <p>{salon.name}</p>
         <button>

@@ -21,13 +21,13 @@ body {
   background-color: #fff; /* Fondo blanco */
   display: flex;
   width: 100px;
-  height: 190px;
+  height: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
 }
-.descript{
+.descript {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,4 +48,16 @@ body {
 }
 .descripcion img {
   width: 100%;
+}
+
+.image-container {
+  position: relative;
+  width: auto; /* Ajusta el tamaño según lo necesites */
+  display: inline-block;
+}
+
+.cart-button {
+  position: absolute;
+  bottom: 10px; /* Distancia desde la parte inferior de la imagen */
+  right: 10px; /* Distancia desde la parte derecha de la imagen */
 }
