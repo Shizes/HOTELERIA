@@ -7,7 +7,7 @@ import Footer from "@/Components/ui/Footer";
 import PersonSelector from "@/Components/PersonSelector";
 import DateSelector from "@/Components/DateSelector";
 import RoomSection from "@/Components/RoomSection";
-import ExtraButton2 from "@/components/ExtraButton2";
+import ExtraButton2 from "@/Components/ExtraButton2";
 import "./page.css";
 const suitesejecutivas = () => {
   const [isPersonSelectorOpen, setIsPersonSelectorOpen] = useState(false);

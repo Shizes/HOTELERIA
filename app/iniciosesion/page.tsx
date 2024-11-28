@@ -1,8 +1,8 @@
 import React from 'react';
-import Portada from '@/components/portada';
-import LoginForm from '@/components/LoginForm';
-import QuickAccess from '@/components/QuickAccess';
-import RegisterLink from '@/components/RegisterLink';
+import Portada from '@/Components/portada';
+import LoginForm from '@/Components/LoginForm';
+import QuickAccess from '@/Components/QuickAccess';
+import RegisterLink from '@/Components/RegisterLink';
 
 const InicioSesion = () => {
   return (

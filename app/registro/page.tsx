@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Portada from "@/components/portada"; // Reutilizando portada
-import RegisterForm from "@/components/RegisterForm"; // Nuevo componente
-import QuickAccess from "@/components/QuickAccess"; // Reutilizando opciones rápidas
+import Portada from "@/Components/portada"; // Reutilizando portada
+import RegisterForm from "@/Components/RegisterForm"; // Nuevo componente
+import QuickAccess from "@/Components/QuickAccess"; // Reutilizando opciones rápidas
 
 const Registro = () => {
   return (
