@@ -13,11 +13,11 @@ import "./page.css";
 const Habitaciones = () => {
   const [isPersonSelectorOpen, setIsPersonSelectorOpen] = useState(false);
   const [isDateSelectorOpen, setIsDateSelectorOpen] = useState(false);
+  const [personCount, setPersonCount] = useState(1); // Mover aquí el estado
 
-  // Datos de ejemplo para habitaciones
   const recommendedRooms = [
     { image: "/img/departamento_simple.jpg", name: "Departamento Simple", price: "$80" },
-    {image: "/img/habitacion_doble.jpg", name: "Habitación Doble/Matrimonial", price: "$120" },
+    { image: "/img/habitacion_doble.jpg", name: "Habitación Doble/Matrimonial", price: "$120" },
     { image: "/img/habitacion_triple.jpg", name: "Habitación Triple", price: "$110" },
     { image: "/img/departamento_familiar.jpg", name: "Departamento Familiar", price: "$125" },
     { image: "/img/departamento_doble.jpg", name: "Departamento Doble", price: "$120" },
@@ -32,42 +32,26 @@ const Habitaciones = () => {
     { image: "/img/departamento_doble.jpg", name: "Departamento Doble", price: "$120" },
   ];
 
-  // Manejo de apertura y cierre de los modales
   const openPersonSelector = () => setIsPersonSelectorOpen(true);
   const closePersonSelector = () => setIsPersonSelectorOpen(false);
-  const openDateSelector = () => setIsDateSelectorOpen(true);
-  const closeDateSelector = () => setIsDateSelectorOpen(false);
 
   return (
     <div>
-      {/* Barra de navegación */}
       <Navbar />
 
       <main>
         {/* Controles de reserva */}
         <div className="reservation-controls">
           <div className="control" onClick={openPersonSelector}>
-            <img
-              src="/icons/user.svg"
-              alt="Personas"
-              className="control-icon"
-            />
-            <span>Personas:</span> 01
+            <img src="/icons/user.svg" alt="Personas" className="control-icon" />
+            <span>Personas:</span> {personCount} {/* Sincronizado con el estado */}
           </div>
-          <div className="control" onClick={openDateSelector}>
-            <img
-              src="/icons/calendar.svg"
-              alt="Fechas"
-              className="control-icon"
-            />
+          <div className="control">
+            <img src="/icons/calendar.svg" alt="Fechas" className="control-icon" />
             <span>Inicio:</span> 09 oct 2024
           </div>
           <div className="control">
-            <img
-              src="/icons/calendar.svg"
-              alt="Fechas"
-              className="control-icon"
-            />
+            <img src="/icons/calendar.svg" alt="Fechas" className="control-icon" />
             <span>Salida:</span> 13 oct 2024
           </div>
           <Link href="/reservas">
@@ -83,15 +67,13 @@ const Habitaciones = () => {
         <PersonSelector
           isOpen={isPersonSelectorOpen}
           onClose={closePersonSelector}
+          count={personCount} // Pasar el estado
+          setCount={setPersonCount} // Pasar el método para actualizar
         />
-        <DateSelector
-          isOpen={isDateSelectorOpen}
-          onClose={closeDateSelector}
-        />
+        <DateSelector isOpen={isDateSelectorOpen} onClose={() => setIsDateSelectorOpen(false)} />
       </main>
       <ExtraButton />
 
-      {/* Pie de página */}
       <Footer />
     </div>
   );
