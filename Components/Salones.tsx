@@ -1,9 +1,8 @@
-'use server';
-import React from 'react'
-import { getSalones } from "../lib/getSalones";
-import CardSalon from './CardSalon';
-import './Salones.css';
-
+"use client";
+import React from "react";
+import CardSalon from "./CardSalon";
+import { getSalones } from "@/lib/getSalones";
+import { useEffect, useState } from "react";
 interface SalonesType {
   id: string;
   name: string;
@@ -13,20 +12,31 @@ interface SalonesType {
 }
 
 
-export default async function ApiSalones() {
-    const salones: SalonesType[] = await getSalones(
-       ' https://673e808e0118dbfe860b76dd.mockapi.io/armados'
-    );
+const Armados = () => {
+  const [salon, setSalon] = useState<SalonesType[]>([]);
 
-    
-
-  return (
-    <div className='mosaico'>
-      <h2 className='titulo'>Tipo de salones</h2>
-    {salones.map((salon) => (
-     <CardSalon key={salon.id} salon={salon}/>
-    ))}
+  useEffect(() => {
+    async function fetchSalon() {
+      try {
+        const response = await getSalones(
+          "https://673e808e0118dbfe860b76dd.mockapi.io/armados"
+        );
+        setSalon(response);
+      } catch (error) {
+        console.error("Error al obtener salon", error);
+      }
+    }
+    fetchSalon();
+  }, []);
+  return <div>
+    <div>
+      {
+        salon.map((salon) => (
+          <CardSalon key={salon.id} salon={salon} />
+        ))}
     </div>
-  )
-}
+  </div>;
+};
+
+export default Armados;
 

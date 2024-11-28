@@ -1,5 +1,5 @@
 import "./CardSalones.css";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 interface SalonProps {
@@ -13,8 +13,9 @@ interface SalonProps {
 }
 
 const CardSalon = ({ salon }: SalonProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="card">
+    <div className={'card ${isOpen ? "open" : ""}'}>
       <div className="image-container">
         <img src={salon.image} alt={salon.name} />
         <button className="cart-button">
@@ -24,11 +25,18 @@ const CardSalon = ({ salon }: SalonProps) => {
 
       <div className="descript">
         <p>{salon.name}</p>
-        <button>
+        <button className="arrow" onClick={() => setIsOpen(!isOpen)}>
           <Image src="/img/desplegable.png" width={10} height={10} alt="" />
         </button>
       </div>
-      <div className="descripcion">
+      <div
+        className={`deplegable ${isOpen ? "show" : ""}`}
+        style={{
+          maxHeight: isOpen ? "500px" : "0px", // Cambia dinámicamente la altura
+          overflow: "hidden", // Oculta contenido extra
+          transition: "max-height 0.3s ease-in-out", // Transición suave
+        }}
+      >
         <img src={salon.description} alt={salon.name} />
       </div>
     </div>
