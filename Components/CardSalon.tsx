@@ -26,7 +26,7 @@ const CardSalon = ({ salon }: SalonProps) => {
       <div className="descript">
         <p>{salon.name}</p>
         <button className="arrow" onClick={() => setIsOpen(!isOpen)}>
-          <Image src="/img/desplegable.png" width={10} height={10} alt="" />
+          <Image src={isOpen ?    "/img/image 27.png":"/img/desplegable.png"} width={10} height={10} alt="" />
         </button>
       </div>
       <div

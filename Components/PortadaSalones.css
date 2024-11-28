@@ -1,7 +1,7 @@
 .eventos-container {
     position: relative;
-    width: 375px;
-    height:175px; /* Ajusta según sea necesario */
+    width: auto;
+    height:auto; /* Ajusta según sea necesario */
     background-image: url("https://res.cloudinary.com/dxagdnafs/image/upload/v1732667433/838beb781e3502023f403341cc05fb5b_hnpmon.png"); /* Ruta de la imagen de fondo */
     background-size: cover;
     background-position: center;
