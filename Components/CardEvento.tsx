@@ -27,7 +27,7 @@ const CardEvento = ({ cardEvent }: CardEventProps) => {
             <Image src="/img/plus.png" height={20} width={20} alt="" />{" "}
             <p>{isOpen ? "OCULTAR" : "DESCRIPCIÓN"}</p>
           </button>
-          <Link href={`/armados`}>
+          <Link href={`/salones`}>
             <button className="reser">Reservar</button>
           </Link>
         </div>
