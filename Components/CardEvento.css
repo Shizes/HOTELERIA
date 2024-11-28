@@ -16,13 +16,13 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 375px;
-  height: 1288px;
+  height: auto;
 }
 
 .eventos-card {
   display: flex;
   width: 281px;
-  height: 390px;
+  height: auto;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -104,4 +104,7 @@ body {
   height: 20px;
 }
 
-
+.description{
+  margin: 15px;
+  
+}
