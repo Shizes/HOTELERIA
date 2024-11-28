@@ -1,10 +1,16 @@
 import React from 'react'
 import Navbar from '@/Components/ui/Navbar'
-const salones = () => {
+import ApiSalones from '@/Components/Salones'
+import PortadaSalones from '@/Components/PortadaSalones'
+const armados = () => {
   return (
-    <div><Navbar/>
-    salones</div>
+    <div>
+      <Navbar/>
+      <PortadaSalones/>
+      <ApiSalones/>
+      armados
+      </div>
   )
 }
 
-export default salones
+export default armados
