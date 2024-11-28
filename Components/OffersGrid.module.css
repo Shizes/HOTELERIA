@@ -1,62 +1,111 @@
 .offers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .offer-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    background-color: #fff; /* Fondo blanco */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .offer-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .offer-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333; /* Color negro */
-    margin: 10px 0;
-  }
-  
-  .offer-price {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333; /* Color negro */
-  }
-  
-  .offer-availability {
-    font-size: 14px;
-    color: green; /* Verde para "Disponible" */
-    font-weight: bold;
-    margin: 10px 0;
-  }
-  
-  .add-to-cart {
-    background-color: #6200ea;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex; /* Habilitar flexbox */
-    align-items: center; /* Centrar verticalmente */
-    justify-content: center; /* Centrar horizontalmente */
-    gap: 8px; /* Espaciado entre texto e icono */
-    margin: 10px auto;
-    width: fit-content; /* Ajusta el tamaño del botón al contenido */
-    text-align: center;
-  }
-  
-  .add-to-cart img {
-    margin: 0; /* Elimina márgenes adicionales */
-    display: inline-block; /* Asegura que el icono se trate como un elemento en línea */
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.offer-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.offer-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.offer-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.offer-discount {
+  font-size: 14px;
+  color: #9E9E9E;
+  text-decoration: line-through;
+}
+
+.offer-availability {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  text-align: center;
+  margin: 0; /* Ajusta el margen para no afectar la alineación */
+}
+
+.available {
+  background-color: #23A26D; /* Verde */
+  color: white;
+}
+
+.unavailable {
+  background-color: #EA5457; /* Rojo */
+  color: white;
+}
+/* Contenedor de disponibilidad y carrito */
+.availability-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+/* Ícono del carrito convertido en botón */
+.cart-icon {
+  width: 48px; /* Tamaño más grande para el botón */
+  height: 48px;
+  background-color: #A91F8C; /* Color del fondo cuando está disponible */
+  border: none;
+  border-radius: 50%; /* Forma redonda */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Escala de grises para el carrito cuando no está disponible */
+.cart-icon.unavailable {
+  background-color: #9E9E9E; /* Gris si está agotado */
+  cursor: not-allowed; /* Cursor no permitido */
+}
+
+.cart-icon img {
+  width: 24px; /* Tamaño interno del ícono */
+  height: 24px;
+  filter: none; /* Color normal por defecto */
+}
+
+/* Transición al pasar el mouse sobre el botón */
+.cart-icon:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
+
+/* Desactiva la escala si el producto está agotado */
+.cart-icon.unavailable:hover {
+  transform: none;
+}

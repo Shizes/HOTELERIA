@@ -17,7 +17,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery }) =>
         onChange={(e) => setSearchQuery(e.target.value)}
       />
       <button className="filter-button">
-        <Image src="/icons/filter.svg" alt="Filter" width={24} height={24} />
+        <Image src="/icons/filterl.svg" alt="Filter" width={24} height={24} />
       </button>
     </div>
   );

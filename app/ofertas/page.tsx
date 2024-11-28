@@ -83,21 +83,29 @@ const OfertasPage = () => {
     }
   }, [searchQuery, offers]);
 
-  return (
-    <div>
-      <Navbar />
-      <div className="container">
-        <h1 className="title">Oferta de habitaciones</h1>
-        {/* Tabs */}
-        <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        {/* Barra de búsqueda */}
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        {/* Grid de Ofertas */}
-        <OffersGrid offers={filteredOffers} isLoading={isLoading} />
-      </div>
-      <Footer />
+ return (
+  <div>
+    <Navbar />
+    <div className="container">
+      <h1 className="title">Oferta de habitaciones</h1>
+      {/* Solo renderiza el contenido cuando los datos estén listos */}
+      {isLoading ? (
+        <p>Cargando ofertas...</p>
+      ) : (
+        <>
+          {/* Tabs */}
+          <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
+          {/* Barra de búsqueda */}
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          {/* Grid de Ofertas */}
+          <OffersGrid offers={filteredOffers} isLoading={isLoading} />
+        </>
+      )}
     </div>
-  );
+    <Footer />
+  </div>
+);
+
 };
 
 export default OfertasPage;

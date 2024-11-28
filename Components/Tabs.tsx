@@ -6,26 +6,18 @@ type TabsProps = {
 };
 
 const Tabs: React.FC<TabsProps> = ({ activeTab, setActiveTab }) => {
+  const tabs = ["Todos", "Habitaciones", "Suits"];
   return (
     <div className="tabs">
-      <button
-        className={`tab ${activeTab === "Todos" ? "active" : ""}`}
-        onClick={() => setActiveTab("Todos")}
-      >
-        Todos
-      </button>
-      <button
-        className={`tab ${activeTab === "Habitaciones" ? "active" : ""}`}
-        onClick={() => setActiveTab("Habitaciones")}
-      >
-        Habitaciones
-      </button>
-      <button
-        className={`tab ${activeTab === "Suits" ? "active" : ""}`}
-        onClick={() => setActiveTab("Suits")}
-      >
-        Suits
-      </button>
+      {tabs.map((tab) => (
+        <button
+          key={tab}
+          className={`tab ${activeTab === tab ? "active" : ""}`}
+          onClick={() => setActiveTab(tab)}
+        >
+          {tab}
+        </button>
+      ))}
     </div>
   );
 };
