@@ -2,6 +2,7 @@ import "./CardEvento.css";
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
+import Link from 'next/link';
 
 interface CardEventProps {
   cardEvent: {
@@ -26,10 +27,9 @@ const CardEvento = ({ cardEvent }: CardEventProps) => {
             <Image src="/img/plus.png" height={20} width={20} alt="" />{" "}
             <p>{isOpen ? "OCULTAR" : "DESCRIPCIÓN"}</p>
           </button>
-          <a href="../armados/page.tsx">
-            {" "}
+          <Link href={`/armados`}>
             <button className="reser">Reservar</button>
-          </a>
+          </Link>
         </div>
         <div
           className={`deplegable ${isOpen ? "show" : ""}`}
