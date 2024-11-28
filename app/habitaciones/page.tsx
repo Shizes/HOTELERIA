@@ -5,15 +5,18 @@ import Link from "next/link";
 import Navbar from "@/Components/ui/Navbar";
 import Footer from "@/Components/ui/Footer";
 import PersonSelector from "@/Components/PersonSelector";
-import DateSelector from "@/Components/DateSelector";
+import Calendar from "@/Components/calendar";
 import RoomSection from "@/Components/RoomSection";
 import ExtraButton from "@/Components/ExtraButton";
 import "./page.css";
 
 const Habitaciones = () => {
   const [isPersonSelectorOpen, setIsPersonSelectorOpen] = useState(false);
-  const [isDateSelectorOpen, setIsDateSelectorOpen] = useState(false);
-  const [personCount, setPersonCount] = useState(1); // Mover aquí el estado
+  const [isStartDateSelectorOpen, setIsStartDateSelectorOpen] = useState(false);
+  const [isEndDateSelectorOpen, setIsEndDateSelectorOpen] = useState(false);
+  const [personCount, setPersonCount] = useState(1);
+  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+  const [endDate, setEndDate] = useState<Date | undefined>(undefined);
 
   const recommendedRooms = [
     { image: "/img/departamento_simple.jpg", name: "Departamento Simple", price: "$80" },
@@ -32,9 +35,6 @@ const Habitaciones = () => {
     { image: "/img/departamento_doble.jpg", name: "Departamento Doble", price: "$120" },
   ];
 
-  const openPersonSelector = () => setIsPersonSelectorOpen(true);
-  const closePersonSelector = () => setIsPersonSelectorOpen(false);
-
   return (
     <div>
       <Navbar />
@@ -42,17 +42,17 @@ const Habitaciones = () => {
       <main>
         {/* Controles de reserva */}
         <div className="reservation-controls">
-          <div className="control" onClick={openPersonSelector}>
+          <div className="control" onClick={() => setIsPersonSelectorOpen(true)}>
             <img src="/icons/user.svg" alt="Personas" className="control-icon" />
-            <span>Personas:</span> {personCount} {/* Sincronizado con el estado */}
+            <span>Personas:</span> {personCount}
           </div>
-          <div className="control">
-            <img src="/icons/calendar.svg" alt="Fechas" className="control-icon" />
-            <span>Inicio:</span> 09 oct 2024
+          <div className="control" onClick={() => setIsStartDateSelectorOpen(true)}>
+            <img src="/icons/calendar.svg" alt="Inicio" className="control-icon" />
+            <span>Inicio:</span> {startDate ? startDate.toLocaleDateString() : "Seleccionar"}
           </div>
-          <div className="control">
-            <img src="/icons/calendar.svg" alt="Fechas" className="control-icon" />
-            <span>Salida:</span> 13 oct 2024
+          <div className="control" onClick={() => setIsEndDateSelectorOpen(true)}>
+            <img src="/icons/calendar.svg" alt="Salida" className="control-icon" />
+            <span>Salida:</span> {endDate ? endDate.toLocaleDateString() : "Seleccionar"}
           </div>
           <Link href="/reservas">
             <button className="reserve-button">Reservas</button>
@@ -66,14 +66,61 @@ const Habitaciones = () => {
         {/* Modales */}
         <PersonSelector
           isOpen={isPersonSelectorOpen}
-          onClose={closePersonSelector}
-          count={personCount} // Pasar el estado
-          setCount={setPersonCount} // Pasar el método para actualizar
+          onClose={() => setIsPersonSelectorOpen(false)}
+          count={personCount}
+          setCount={setPersonCount}
         />
-        <DateSelector isOpen={isDateSelectorOpen} onClose={() => setIsDateSelectorOpen(false)} />
+
+        {/* Modal para la fecha de llegada */}
+        {isStartDateSelectorOpen && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <button className="modal-close" onClick={() => setIsStartDateSelectorOpen(false)}>X</button>
+              <h3>Seleccionar fecha de llegada</h3>
+              <Calendar
+                selected={startDate}
+                onSelect={(date) => {
+                  setStartDate(date);
+                  if (endDate && date && date > endDate) {
+                    setEndDate(undefined); // Resetea la fecha de salida si es inválida
+                  }
+                  setIsStartDateSelectorOpen(false);
+                }}
+                fromDate={new Date()} // Restringe fechas anteriores al día actual
+              />
+              <button className="confirm-button" onClick={() => setIsStartDateSelectorOpen(false)}>
+                Confirmar
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Modal para la fecha de salida */}
+        {isEndDateSelectorOpen && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <button className="modal-close" onClick={() => setIsEndDateSelectorOpen(false)}>X</button>
+              <h3>Seleccionar fecha de salida</h3>
+              <Calendar
+                selected={endDate}
+                onSelect={(date) => {
+                  if (date && startDate && date < startDate) {
+                    alert("La fecha de salida debe ser posterior a la de llegada.");
+                    return;
+                  }
+                  setEndDate(date);
+                  setIsEndDateSelectorOpen(false);
+                }}
+                fromDate={startDate || new Date()} // Fecha mínima es la de llegada
+              />
+              <button className="confirm-button" onClick={() => setIsEndDateSelectorOpen(false)}>
+                Confirmar
+              </button>
+            </div>
+          </div>
+        )}
       </main>
       <ExtraButton />
-
       <Footer />
     </div>
   );
