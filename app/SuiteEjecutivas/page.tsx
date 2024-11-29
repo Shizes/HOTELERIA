@@ -8,10 +8,10 @@ import Footer from "@/Components/ui/Footer";
 import PersonSelector from "@/Components/PersonSelector";
 import Calendar from "@/Components/calendar";
 import RoomSection from "@/Components/RoomSection";
-import ExtraButton from "@/Components/ExtraButton";
 import OffersLoaderSuites from "@/Components/OffersLoaderSuites";
 import "./page.css";
 import { RoomApiData } from "@/lib/types";
+import ExtraButton2 from "@/Components/ExtraButton2";
 
 const SuitesEjecutivas = () => {
   const [isPersonSelectorOpen, setIsPersonSelectorOpen] = useState(false);
@@ -20,9 +20,7 @@ const SuitesEjecutivas = () => {
   const [personCount, setPersonCount] = useState(1);
   const [startDate, setStartDate] = useState<Date | undefined>(undefined);
   const [endDate, setEndDate] = useState<Date | undefined>(undefined);
-  const [recommendedSuites, setRecommendedSuites] = useState<
-    { image: string; name: string; price: string; discount?: string; quantity: number; car: string }[]
-  >([]);
+  const [recommendedSuites, setRecommendedSuites] = useState<RoomApiData[]>([]);
 
   // Fetch de las suites ejecutivas
   useEffect(() => {
@@ -31,29 +29,22 @@ const SuitesEjecutivas = () => {
         const response = await fetch("https://6748c0115801f51535920c96.mockapi.io/Suits");
         const data: RoomApiData[] = await response.json();
 
-        // Filtrar suites con descuento
+        // Filtrar suites con descuento y capacidad necesaria
         const suitesWithDiscount = data.filter(
-          (suite) => suite.discount && suite.price !== suite.discount
+          (suite) =>
+            suite.discount && 
+            suite.price !== suite.discount && 
+            Number(suite.capacity) >= personCount // Filtrar por capacidad
         );
 
-        // Formatear suites para RoomSection
-        setRecommendedSuites(
-          suitesWithDiscount.map((suite) => ({
-            image: suite.avatar,
-            name: suite.name,
-            price: suite.price,
-            discount: suite.discount,
-            quantity: Number(suite.quantity),
-            car: suite.car,
-          }))
-        );
+        setRecommendedSuites(suitesWithDiscount);
       } catch (error) {
         console.error("Error fetching suites:", error);
       }
     };
 
     fetchSuites();
-  }, []);
+  }, [personCount]); // Refetch cuando cambie `personCount`
 
   return (
     <div>
@@ -98,13 +89,24 @@ const SuitesEjecutivas = () => {
         </div>
 
         {/* Sección de Recomendados */}
-        <RoomSection title="Recomendados" rooms={recommendedSuites} />
+        <RoomSection
+          title="Recomendados"
+          rooms={recommendedSuites.map((suite) => ({
+            image: suite.avatar,
+            name: suite.name,
+            price: suite.price,
+            discount: suite.discount,
+            quantity: Number(suite.quantity),
+            car: suite.car,
+            capacity: suite.capacity, // Pasamos capacidad para mostrarla
+          }))}
+        />
 
         {/* Sección de Todas las Suites Disponibles */}
         <section>
-          <h2 className="habitaciones-title">Todas las Suites Disponibles</h2>
-          <OffersLoaderSuites />
-        </section>
+  <h2 className="habitaciones-title">Todas las Suites Disponibles</h2>
+  <OffersLoaderSuites personCount={personCount} /> {/* Pasamos personCount */}
+</section>
 
         {/* Modales */}
         <PersonSelector
@@ -116,7 +118,9 @@ const SuitesEjecutivas = () => {
         {isStartDateSelectorOpen && (
           <div className="modal-overlay">
             <div className="modal-content">
-              <button className="modal-close" onClick={() => setIsStartDateSelectorOpen(false)}>X</button>
+              <button className="modal-close" onClick={() => setIsStartDateSelectorOpen(false)}>
+                X
+              </button>
               <h3>Seleccionar fecha de llegada</h3>
               <Calendar
                 selected={startDate}
@@ -135,7 +139,9 @@ const SuitesEjecutivas = () => {
         {isEndDateSelectorOpen && (
           <div className="modal-overlay">
             <div className="modal-content">
-              <button className="modal-close" onClick={() => setIsEndDateSelectorOpen(false)}>X</button>
+              <button className="modal-close" onClick={() => setIsEndDateSelectorOpen(false)}>
+                X
+              </button>
               <h3>Seleccionar fecha de salida</h3>
               <Calendar
                 selected={endDate}
@@ -153,7 +159,7 @@ const SuitesEjecutivas = () => {
           </div>
         )}
       </main>
-      <ExtraButton />
+      <ExtraButton2 />
 
       <Footer />
     </div>

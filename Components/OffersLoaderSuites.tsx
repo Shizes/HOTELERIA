@@ -1,50 +1,53 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import OffersGrid from "@/Components/OffersGrid"; // Reutilizamos el componente de ofertas
-import { Offer } from "@/lib/types"; // Tipo de datos para las ofertas
+import OffersGrid from "@/Components/OffersGrid";
+import { Offer } from "@/lib/types";
 
-// Define el tipo de los datos crudos que llegan desde la API
-type SuiteApiData = {
+type RoomApiData = {
   id: string;
   createdAt: string;
   name: string;
   avatar: string;
   price: string;
   car: string;
-  quantity: string; // Viene como string en la API
+  quantity: string;
   discount?: string;
-  state: string; // Para verificar si está habilitada
+  capacity: string; // Campo capacity incluido
 };
 
-const OffersLoaderSuites = () => {
-  const [offers, setOffers] = useState<Offer[]>([]); // Estado para las ofertas
-  const [isLoading, setIsLoading] = useState(true); // Estado de carga
+type OffersLoaderSuitesProps = {
+  personCount: number; // Prop para filtrar por capacidad de personas
+};
+
+const OffersLoaderSuites: React.FC<OffersLoaderSuitesProps> = ({ personCount }) => {
+  const [offers, setOffers] = useState<Offer[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Cargar las ofertas desde la API
     const fetchOffers = async () => {
       setIsLoading(true);
       try {
         const response = await fetch("https://6748c0115801f51535920c96.mockapi.io/Suits");
-        const data: SuiteApiData[] = await response.json(); // Tipar la respuesta como SuiteApiData[]
+        const data: RoomApiData[] = await response.json();
 
-        // Filtrar y transformar los datos para que coincidan con el modelo esperado
-        const transformedOffers: Offer[] = data
-          .filter((item) => item.state === "Enabled") // Solo incluir suites habilitadas
-          .map((item: SuiteApiData) => ({
+        // Filtrar y transformar las suites para mostrarlas correctamente
+        const filteredOffers = data
+          .filter((item) => Number(item.capacity) >= personCount) // Filtrar por capacidad
+          .map((item) => ({
             id: item.id,
-            createdAt: item.createdAt,
             name: item.name,
             avatar: item.avatar,
             price: item.price,
-            car: item.car,
+            discount: item.discount !== item.price ? item.discount : undefined, // Validar el descuento
             quantity: Number(item.quantity),
-            discount: item.discount,
-            type: "suit", // Identificar como tipo "suit"
+            car: item.car,
+            capacity: item.capacity, // Incluir capacity
+            createdAt: item.createdAt, // Incluir createdAt
+            type: "suit" as const, // Especificar tipo como constante
           }));
 
-        setOffers(transformedOffers);
+        setOffers(filteredOffers);
       } catch (error) {
         console.error("Error al cargar las suites:", error);
       } finally {
@@ -53,7 +56,7 @@ const OffersLoaderSuites = () => {
     };
 
     fetchOffers();
-  }, []);
+  }, [personCount]); // Refetch cada vez que cambie personCount
 
   return <OffersGrid offers={offers} isLoading={isLoading} />;
 };

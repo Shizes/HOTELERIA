@@ -8,51 +8,43 @@ import PersonSelector from "@/Components/PersonSelector";
 import Calendar from "@/Components/calendar";
 import RoomSection from "@/Components/RoomSection";
 import ExtraButton from "@/Components/ExtraButton";
-import OffersLoaderSuites from "@/Components/OffersLoaderSuites"; // Componente para cargar las suites dinámicamente
+import OffersLoaderHabitaciones from "@/Components/OffersLoaderHabitaciones";
+import Image from "next/image"; // Importa Image
 import "./page.css";
 import { RoomApiData } from "@/lib/types";
 
-const SuitesEjecutivas = () => {
+const Habitaciones = () => {
   const [isPersonSelectorOpen, setIsPersonSelectorOpen] = useState(false);
   const [isStartDateSelectorOpen, setIsStartDateSelectorOpen] = useState(false);
   const [isEndDateSelectorOpen, setIsEndDateSelectorOpen] = useState(false);
   const [personCount, setPersonCount] = useState(1);
   const [startDate, setStartDate] = useState<Date | undefined>(undefined);
   const [endDate, setEndDate] = useState<Date | undefined>(undefined);
-  const [recommendedSuites, setRecommendedSuites] = useState<
-    { image: string; name: string; price: string; discount?: string; quantity: number; car: string }[]
-  >([]);
+  const [recommendedRooms, setRecommendedRooms] = useState<RoomApiData[]>([]);
 
-  // Fetch de las suites ejecutivas
+  // Fetch de las habitaciones con lógica de ofertas
   useEffect(() => {
-    const fetchSuites = async () => {
+    const fetchRecommendedRooms = async () => {
       try {
-        const response = await fetch("https://6748c0115801f51535920c96.mockapi.io/Suits");
+        const response = await fetch("https://6748c0115801f51535920c96.mockapi.io/Rooms/");
         const data: RoomApiData[] = await response.json();
 
-        // Filtrar suites con descuento (donde el precio y el descuento no son iguales)
-        const suitesWithDiscount = data.filter(
-          (suite) => suite.discount && suite.price !== suite.discount
-        );
+        // Filtrar habitaciones con ofertas (precio diferente al descuento)
+        const roomsWithDiscount = data.filter((room) => room.price !== room.discount);
 
-        // Formatear suites para `RoomSection`
-        setRecommendedSuites(
-          suitesWithDiscount.map((suite) => ({
-            image: suite.avatar,
-            name: suite.name,
-            price: suite.price,
-            discount: suite.discount,
-            quantity: Number(suite.quantity),
-            car: suite.car,
-          }))
-        );
+        setRecommendedRooms(roomsWithDiscount);
       } catch (error) {
-        console.error("Error fetching suites:", error);
+        console.error("Error fetching recommended rooms:", error);
       }
     };
 
-    fetchSuites();
+    fetchRecommendedRooms();
   }, []);
+
+  // Filtrar habitaciones por capacidad
+  const filteredRooms = recommendedRooms.filter(
+    (room) => Number(room.capacity) >= personCount
+  );
 
   return (
     <div>
@@ -62,29 +54,59 @@ const SuitesEjecutivas = () => {
         {/* Controles de reserva */}
         <div className="reservation-controls">
           <div className="control" onClick={() => setIsPersonSelectorOpen(true)}>
-            <img src="/icons/user.svg" alt="Personas" className="control-icon" />
+            <Image
+              src="/icons/user.svg"
+              alt="Personas"
+              width={24}
+              height={24}
+              className="control-icon"
+            />
             <span>Personas:</span> {personCount}
           </div>
           <div className="control" onClick={() => setIsStartDateSelectorOpen(true)}>
-            <img src="/icons/calendar.svg" alt="Inicio" className="control-icon" />
+            <Image
+              src="/icons/calendar.svg"
+              alt="Inicio"
+              width={24}
+              height={24}
+              className="control-icon"
+            />
             <span>Inicio:</span> {startDate ? startDate.toLocaleDateString() : "Seleccionar"}
           </div>
           <div className="control" onClick={() => setIsEndDateSelectorOpen(true)}>
-            <img src="/icons/calendar.svg" alt="Salida" className="control-icon" />
+            <Image
+              src="/icons/calendar.svg"
+              alt="Salida"
+              width={24}
+              height={24}
+              className="control-icon"
+            />
             <span>Salida:</span> {endDate ? endDate.toLocaleDateString() : "Seleccionar"}
           </div>
           <Link href="/reservas">
-            <button className="reserve-button">Reservas</button>
+            <button className="reserve-button">Reservar</button>
           </Link>
         </div>
 
-        {/* Sección de Recomendados */}
-        <RoomSection title="Recomendados" rooms={recommendedSuites} />
+        {/* Sección de habitaciones recomendadas con ofertas */}
+        <RoomSection
+          title="Recomendados"
+          rooms={filteredRooms.map((room) => ({
+            image: room.avatar,
+            name: room.name,
+            price: room.price,
+            discount:
+              room.price !== room.discount ? room.discount : undefined, // Mostrar descuento solo si es diferente al precio
+            quantity: Number(room.quantity),
+            car: room.car,
+            capacity: room.capacity, // Asegurarse de pasar capacidad
+          }))}
+        />
 
-        {/* Sección de Todas las Suites Disponibles */}
+        {/* Sección de todos los paquetes */}
         <section>
-          <h2 className="habitaciones-title">Todas las Suites Disponibles</h2>
-          <OffersLoaderSuites /> {/* Carga las suites directamente desde la API */}
+          <h2 className="habitaciones-title">Todos los Paquetes</h2>
+          <OffersLoaderHabitaciones personCount={personCount} /> {/* Pasamos personCount */}
         </section>
 
         {/* Modales */}
@@ -97,7 +119,12 @@ const SuitesEjecutivas = () => {
         {isStartDateSelectorOpen && (
           <div className="modal-overlay">
             <div className="modal-content">
-              <button className="modal-close" onClick={() => setIsStartDateSelectorOpen(false)}>X</button>
+              <button
+                className="modal-close"
+                onClick={() => setIsStartDateSelectorOpen(false)}
+              >
+                X
+              </button>
               <h3>Seleccionar fecha de llegada</h3>
               <Calendar
                 selected={startDate}
@@ -110,13 +137,24 @@ const SuitesEjecutivas = () => {
                 }}
                 fromDate={new Date()}
               />
+              <button
+                className="confirm-button"
+                onClick={() => setIsStartDateSelectorOpen(false)}
+              >
+                Confirmar
+              </button>
             </div>
           </div>
         )}
         {isEndDateSelectorOpen && (
           <div className="modal-overlay">
             <div className="modal-content">
-              <button className="modal-close" onClick={() => setIsEndDateSelectorOpen(false)}>X</button>
+              <button
+                className="modal-close"
+                onClick={() => setIsEndDateSelectorOpen(false)}
+              >
+                X
+              </button>
               <h3>Seleccionar fecha de salida</h3>
               <Calendar
                 selected={endDate}
@@ -130,15 +168,20 @@ const SuitesEjecutivas = () => {
                 }}
                 fromDate={startDate || new Date()}
               />
+              <button
+                className="confirm-button"
+                onClick={() => setIsEndDateSelectorOpen(false)}
+              >
+                Confirmar
+              </button>
             </div>
           </div>
         )}
       </main>
       <ExtraButton />
-
       <Footer />
     </div>
   );
 };
 
-export default SuitesEjecutivas;
+export default Habitaciones;

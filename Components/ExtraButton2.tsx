@@ -12,4 +12,4 @@ const ExtraButton2 = () => {
   )
 }
 
-export default ExtraButton2
+export default ExtraButton2;

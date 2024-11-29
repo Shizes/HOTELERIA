@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image"; // Importa el componente Image de Next.js
+import Image from "next/image";
 import RoomCard from "./RoomCard";
 import "./RoomSection.css";
 
@@ -12,8 +12,9 @@ interface RoomSectionProps {
     name: string;
     price: string;
     discount?: string;
+    capacity: string;
     quantity: number;
-    car: string; // Este se mapea como `carIcon`
+    car: string;
   }[];
 }
 
@@ -41,7 +42,7 @@ const RoomSection: React.FC<RoomSectionProps> = ({ title, rooms }) => {
             <button className="nav-button" onClick={scrollLeft}>
               <Image src="/icons/Left arrow.svg" alt="Izquierda" width={20} height={20} />
             </button>
-            <div style={{ width: "10px" }} /> {/* Espaciador entre las flechas */}
+            <div style={{ width: "10px" }} />
             <button className="nav-button" onClick={scrollRight}>
               <Image src="/icons/Right arrow.svg" alt="Derecha" width={20} height={20} />
             </button>
@@ -59,7 +60,8 @@ const RoomSection: React.FC<RoomSectionProps> = ({ title, rooms }) => {
             name={room.name}
             price={room.price}
             discount={room.discount}
-            isAvailable={room.quantity > 0} // Determina disponibilidad
+            capacity={room.capacity} // Pasamos capacidad
+            isAvailable={room.quantity > 0}
             carIcon={room.car}
           />
         ))}
