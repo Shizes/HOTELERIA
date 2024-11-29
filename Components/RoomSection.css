@@ -1,62 +1,58 @@
 .room-section {
-  margin: 32px 0;
-  padding: 0 16px;
+  margin: 20px 0;
 }
 
 .room-section-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  justify-content: space-between; /* Separa el título de las flechas */
+  margin-bottom: 10px;
 }
 
 .room-section-title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: #333;
 }
 
 .room-section-buttons {
   display: flex;
-  gap: 8px;
+  gap: 10px; /* Espaciado entre las flechas */
 }
 
 .nav-button {
-  background: none;
-  border: none;
+  scale: 2;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
   cursor: pointer;
-  padding: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-.nav-button img {
-  width: 24px;
-  height: 24px;
-}
-
 .room-section-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-/* Aplicar estilos de scroll solo para "Recomendados" */
-.room-section-scroll {
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 16px;
 }
 
-.room-section-scroll::-webkit-scrollbar {
-  height: 8px;
-}
-
-.room-section-scroll::-webkit-scrollbar-thumb {
-  background-color: #a50082;
+.room-card {
+  flex: 0 0 300px;
+  background: #fff;
+  border: 1px solid #ddd;
   border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.room-section-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
 }
 
-.room-section-scroll::-webkit-scrollbar-track {
-  background: #f0f0f0;
+.nav-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/Components/ui/Navbar";
 import Footer from "@/Components/ui/Footer";
@@ -8,32 +8,51 @@ import PersonSelector from "@/Components/PersonSelector";
 import Calendar from "@/Components/calendar";
 import RoomSection from "@/Components/RoomSection";
 import ExtraButton from "@/Components/ExtraButton";
+import OffersLoaderSuites from "@/Components/OffersLoaderSuites"; // Componente para cargar las suites dinámicamente
 import "./page.css";
+import { RoomApiData } from "@/lib/types";
 
-const Habitaciones = () => {
+const SuitesEjecutivas = () => {
   const [isPersonSelectorOpen, setIsPersonSelectorOpen] = useState(false);
   const [isStartDateSelectorOpen, setIsStartDateSelectorOpen] = useState(false);
   const [isEndDateSelectorOpen, setIsEndDateSelectorOpen] = useState(false);
   const [personCount, setPersonCount] = useState(1);
   const [startDate, setStartDate] = useState<Date | undefined>(undefined);
   const [endDate, setEndDate] = useState<Date | undefined>(undefined);
+  const [recommendedSuites, setRecommendedSuites] = useState<
+    { image: string; name: string; price: string; discount?: string; quantity: number; car: string }[]
+  >([]);
 
-  const recommendedRooms = [
-    { image: "/img/departamento_simple.jpg", name: "Departamento Simple", price: "$80" },
-    { image: "/img/habitacion_doble.jpg", name: "Habitación Doble/Matrimonial", price: "$120" },
-    { image: "/img/habitacion_triple.jpg", name: "Habitación Triple", price: "$110" },
-    { image: "/img/departamento_familiar.jpg", name: "Departamento Familiar", price: "$125" },
-    { image: "/img/departamento_doble.jpg", name: "Departamento Doble", price: "$120" },
-  ];
+  // Fetch de las suites ejecutivas
+  useEffect(() => {
+    const fetchSuites = async () => {
+      try {
+        const response = await fetch("https://6748c0115801f51535920c96.mockapi.io/Suits");
+        const data: RoomApiData[] = await response.json();
 
-  const allRooms = [
-    { image: "/img/habitacion_simple.jpg", name: "Habitación Simple", price: "$80" },
-    { image: "/img/habitacion_doble.jpg", name: "Habitación Doble/Matrimonial", price: "$120" },
-    { image: "/img/habitacion_triple.jpg", name: "Habitación Triple", price: "$110" },
-    { image: "/img/departamento_familiar.jpg", name: "Departamento Familiar", price: "$125" },
-    { image: "/img/departamento_simple.jpg", name: "Departamento Simple", price: "$110" },
-    { image: "/img/departamento_doble.jpg", name: "Departamento Doble", price: "$120" },
-  ];
+        // Filtrar suites con descuento (donde el precio y el descuento no son iguales)
+        const suitesWithDiscount = data.filter(
+          (suite) => suite.discount && suite.price !== suite.discount
+        );
+
+        // Formatear suites para `RoomSection`
+        setRecommendedSuites(
+          suitesWithDiscount.map((suite) => ({
+            image: suite.avatar,
+            name: suite.name,
+            price: suite.price,
+            discount: suite.discount,
+            quantity: Number(suite.quantity),
+            car: suite.car,
+          }))
+        );
+      } catch (error) {
+        console.error("Error fetching suites:", error);
+      }
+    };
+
+    fetchSuites();
+  }, []);
 
   return (
     <div>
@@ -59,9 +78,14 @@ const Habitaciones = () => {
           </Link>
         </div>
 
-        {/* Secciones de habitaciones */}
-        <RoomSection title="Recomendados" rooms={recommendedRooms} />
-        <RoomSection title="Todos los Paquetes" rooms={allRooms} />
+        {/* Sección de Recomendados */}
+        <RoomSection title="Recomendados" rooms={recommendedSuites} />
+
+        {/* Sección de Todas las Suites Disponibles */}
+        <section>
+          <h2 className="habitaciones-title">Todas las Suites Disponibles</h2>
+          <OffersLoaderSuites /> {/* Carga las suites directamente desde la API */}
+        </section>
 
         {/* Modales */}
         <PersonSelector
@@ -70,8 +94,6 @@ const Habitaciones = () => {
           count={personCount}
           setCount={setPersonCount}
         />
-
-        {/* Modal para la fecha de llegada */}
         {isStartDateSelectorOpen && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -82,20 +104,15 @@ const Habitaciones = () => {
                 onSelect={(date) => {
                   setStartDate(date);
                   if (endDate && date && date > endDate) {
-                    setEndDate(undefined); // Resetea la fecha de salida si es inválida
+                    setEndDate(undefined);
                   }
                   setIsStartDateSelectorOpen(false);
                 }}
-                fromDate={new Date()} // Restringe fechas anteriores al día actual
+                fromDate={new Date()}
               />
-              <button className="confirm-button" onClick={() => setIsStartDateSelectorOpen(false)}>
-                Confirmar
-              </button>
             </div>
           </div>
         )}
-
-        {/* Modal para la fecha de salida */}
         {isEndDateSelectorOpen && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -111,19 +128,17 @@ const Habitaciones = () => {
                   setEndDate(date);
                   setIsEndDateSelectorOpen(false);
                 }}
-                fromDate={startDate || new Date()} // Fecha mínima es la de llegada
+                fromDate={startDate || new Date()}
               />
-              <button className="confirm-button" onClick={() => setIsEndDateSelectorOpen(false)}>
-                Confirmar
-              </button>
             </div>
           </div>
         )}
       </main>
       <ExtraButton />
+
       <Footer />
     </div>
   );
 };
 
-export default Habitaciones;
+export default SuitesEjecutivas;

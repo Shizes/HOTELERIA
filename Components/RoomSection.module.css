@@ -1,0 +1,12 @@
+.room-card {
+  height: 350px; /* Ajusta este valor para hacer las tarjetas más altas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.room-card img {
+  height: 200px; /* Ajusta para que la imagen no ocupe todo */
+  object-fit: cover; /* Asegura que la imagen mantenga proporciones */
+  border-radius: 10px;
+}

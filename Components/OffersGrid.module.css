@@ -12,6 +12,8 @@
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: auto; /* Asegura que la tarjeta se centre dentro de su contenedor */
+  max-width: 300px; /* Establece un ancho máximo para todas las tarjetas */
 }
 
 .offer-card:hover {
@@ -23,7 +25,8 @@
   font-size: 18px;
   font-weight: bold;
   color: #333;
-  margin: 10px 0;
+  margin: 10px auto;
+  text-align: center;
 }
 
 .price-container {
@@ -71,7 +74,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin: 10px 0;
+  margin-top: 10px;
 }
 
 /* Ícono del carrito convertido en botón */

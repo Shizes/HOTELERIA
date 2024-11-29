@@ -28,12 +28,17 @@ const OffersGrid: React.FC<OffersGridProps> = ({ offers, isLoading }) => {
     <div className={styles["offers-grid"]}>
       {offers.map((offer) => {
         const isAvailable = offer.quantity > 0;
+  
+        // Comparación de price y discount
+        const shouldShowDiscount = offer.discount && offer.discount !== offer.price;
+  
         return (
           <div key={offer.id} className={styles["offer-card"]}>
             <Image src={offer.avatar} alt={offer.name} width={300} height={200} />
             <h3 className={styles["offer-title"]}>{offer.name}</h3>
             <div className={styles["price-container"]}>
-              {offer.discount && (
+              {/* Renderiza el descuento solo si es diferente al precio */}
+              {shouldShowDiscount && (
                 <span className={styles["offer-discount"]} style={{ color: "#9E9E9E" }}>
                   ${offer.discount}
                 </span>
@@ -77,6 +82,7 @@ const OffersGrid: React.FC<OffersGridProps> = ({ offers, isLoading }) => {
       })}
     </div>
   );
+  
 };
 
 export default OffersGrid;

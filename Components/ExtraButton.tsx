@@ -6,7 +6,7 @@ const ExtraButton = () => {
   return (
     <div className="extra-button-container">
       <Link href="/SuiteEjecutivas">
-        <button className="extra-button">Suites Ejecutivas</button>
+      <button className="reserve-button">Suites Ejecutivas</button>
       </Link>
     </div>
   );
