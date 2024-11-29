@@ -5,13 +5,29 @@ import "./ImageGalery.css";
 
 const images = [
   "/img/events_principal.jpg",
-  "/img/restaurants_principal.jpg",
   "/img/achalay.jpg",
   "/img/corporativos.jpg",
   "/img/tsui.jpg",
   "/img/nutsuwara.jpg",
   "/img/munacuy.jpg",
   "/img/fonditohabitaciones.jpg",
+  "/img/g1.jpg",
+  "/img/g9.jpg",
+  "/img/g2.jpg",
+  "/img/g3.jpg",
+  "/img/g4.jpg",
+  "/img/g7.jpg",
+  "/img/g8.jpg",
+  "/img/personal.jpg",
+  "/img/restaurants_principal.jpg",
+  "/img/gg1.jpg",
+  "/img/gg2.jpg",
+  "/img/gg3.jpg",
+  "/img/gg4.jpg",
+  "/img/gg5.jpg",
+  "/img/gg6.jpg",
+  "/img/gg7.jpg",
+  "/img/gg8.jpg"
 ];
 
 const ImageGallery = () => {

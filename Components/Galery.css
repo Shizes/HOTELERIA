@@ -1,6 +1,11 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
 .galery-container {
-    max-width: 375px;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 0;
     position: relative;
   }
   
@@ -24,5 +29,6 @@
     font-size: 32px;
     color: white;
     text-align: center;
+    max-width: 100%;
   }
   
