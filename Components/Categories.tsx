@@ -7,9 +7,9 @@ const Categories = () => {
   const categories = [
     { id: 1, title: "Habitaciones", image: "../img/rooms_principal.jpg", link: "/habitaciones" },
     { id: 2, title: "Eventos", image: "../img/events_principal.jpg", link: "/eventos" },
-    { id: 3, title: "Salones", image: "../img/Conferences & Meetings_principal.jpg", link: "/salones" },
-    { id: 4, title: "Restaurante", image: "../img/restaurants_principal.jpg", link: "/restaurante" },
-    { id: 5, title: "Ejecutivo", image: "../img/Service & Facilities_principal.jpg", link: "/ejecutivo" },
+    { id: 3, title: "Salones", image: "../img/salones.png", link: "/salones" },
+    { id: 4, title: "Restaurante", image: "../img/restaurants_principal.jpg", link: "https://www.hotelcalacoto.com/restaurante"},
+    { id: 5, title: "Ejecutivo", image: "../img/ejecutivo.png", link: "/ejecutivo" },
     { id: 6, title: "Ofertas", image: "../img/oferts_principal.jpg", link: "/ofertas" },
   ];
 
