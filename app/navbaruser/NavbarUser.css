@@ -1,0 +1,93 @@
+/* Contenedor Principal */
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Encabezado */
+.navbar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  background: none; /* Elimina el fondo del botón */
+  border: none; /* Elimina el borde */
+  cursor: pointer;
+  padding: 0; /* Elimina el padding extra */
+}
+
+.back-icon {
+  width: 32px; /* Tamaño más grande de la imagen */
+  height: 32px;
+}
+
+.back-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin-left: 8px; /* Espacio entre el ícono y el texto */
+}
+
+/* Contenido Principal */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 32px;
+}
+
+/* Logo */
+.logo-section .hotel-logo {
+  width: 200px;
+  height: auto;
+}
+
+/* Botones */
+.buttons-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background-color: #a91f8c;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none; /* Elimina el subrayado en enlaces */
+}
+
+.btn:hover {
+  background-color: #8b1f6f;
+  transform: scale(1.02);
+}
+
+.divider {
+  font-size: 16px;
+  font-weight: bold;
+  color: #a91f8c;
+}
