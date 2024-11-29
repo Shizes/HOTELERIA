@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation"; // Importa el router
-import { registerUser } from "@/lib/api";
+import { registerUser } from "@/lib/api_s";
 import "./RegisterForm.css";
 
 const RegisterForm = () => {
