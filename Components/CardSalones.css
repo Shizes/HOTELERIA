@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  color: #a91f8c;
+  margin-bottom: 20px;
+}
+
+.salones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Distribuye las tarjetas en columnas */
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card h3 {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #a91f8c;
+  font-family: 'Raleway', sans-serif;
+}
+
+.descript {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.descript p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #555;
+}
+
+.cart-button {
+  margin-top: 10px;
+  background-color: #a91f8c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cart-button:hover {
+  background-color: #8e1876;
+}
