@@ -1,8 +1,16 @@
+.portada-salones {
+  background-image: url('/path/to/your/image.jpg'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 50px;
+  color: white;
+}
 .eventos-container {
     position: relative;
     width: 375px;
     height:175px; /* Ajusta según sea necesario */
-    background-image: url("https://res.cloudinary.com/dxagdnafs/image/upload/v1732667433/838beb781e3502023f403341cc05fb5b_hnpmon.png"); /* Ruta de la imagen de fondo */
+    background-image: url("https://res.cloudinary.com/dzuthe52x/image/upload/v1732860088/Hoteleria/pagina/gszvi1mw0lpwp6anc62a.png"); /* Ruta de la imagen de fondo */
     background-size: cover;
     background-position: center;
     display: flex;
