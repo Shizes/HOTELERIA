@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation"; // Importa el router
-import { loginUser } from "@/lib/api";
+import { loginUser } from "@/lib/api_s";
 import "./LoginForm.css";
 
 const LoginForm = () => {
